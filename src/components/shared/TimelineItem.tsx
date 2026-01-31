@@ -21,7 +21,7 @@ export function TimelineItemComponent({ item }: TimelineItemComponentProps) {
       rel="noopener noreferrer"
       className="flex items-center gap-4 group hover:border hover:bg-muted/30 border-dashed p-6"
     >
-      <span className="flex items-center text-muted-foreground border-muted-foreground/50 border-dashed justify-center w-10 h-10 bg-background border-1 rounded-full">
+      <span className="flex items-center shrink-0 text-muted-foreground border-muted-foreground/50 border-dashed justify-center w-10 h-10 bg-background border-1 rounded-full">
         {item.icon}
       </span>
       <div className="flex flex-col gap-1">
