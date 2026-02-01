@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { UserProfile } from "@/components/user-profile";
 import { siteConfig } from "@/constants/site.config";
 import { cn } from "@/utils/utils";
+import { useTranslations } from "next-intl";
 import {
   PanelsTopLeft,
   Shield,
@@ -23,27 +24,65 @@ import {
   AlignJustify,
   X,
 } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useSession } from "@/lib/auth-client";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
 import { useState, useMemo } from "react";
-import getTechConfig from "@/constants/techConfig";
-import enMessages from "@/i18n/messages/en.json";
-import jaMessages from "@/i18n/messages/ja.json";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  // const { data: session, isPending } = useSession();
+const getTechConfig = (t: any) => [
+  {
+    icon: <PanelsTopLeft className="size-4" />,
+    category: "1",
+    name: t("items.experience.name"),
+    description: t("items.experience.description"),
+    link: "/experience",
+  },
+  {
+    icon: <Shield className="size-4" />,
+    category: "2",
+    name: t("items.skills.name"),
+    description: t("items.skills.description"),
+    link: "/skills",
+  },
+  {
+    icon: <Database className="size-4" />,
+    category: "3",
+    name: t("items.works.name"),
+    description: t("items.works.description"),
+    link: "/works",
+  },
+  {
+    icon: <Newspaper className="size-4" />,
+    category: "4",
+    name: t("items.news.name"),
+    description: t("items.news.description"),
+    link: "/news",
+  },
+  {
+    icon: <Terminal className="size-4" />,
+    category: "5",
+    name: t("items.terminal.name"),
+    description: t("items.terminal.description"),
+    link: "/terminal",
+  },
+  {
+    icon: <Activity className="size-4" />,
+    category: "6",
+    name: t("items.activity.name"),
+    description: t("items.activity.description"),
+    link: "/activity",
+  },
+];
+
+export default function HomeLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const [isMobileModalOpen, setIsMobileModalOpen] = useState(false);
-
-  const locale = pathname.split("/")[1] || "en";
-  const messages = locale === "ja" ? jaMessages : enMessages;
-  const homeMsgs = (messages as any).home || {};
-  const tLocal = (key: string) =>
-    key
-      .split(".")
-      .reduce((o: any, k: string) => (o ? o[k] : undefined), homeMsgs) ?? key;
-  const techConfig = useMemo(() => getTechConfig(tLocal), [locale]);
+  const t = useTranslations("home");
+  const techConfig = useMemo(() => getTechConfig(t), [t]);
 
   const toggleMobileModal = () => {
     setIsMobileModalOpen(!isMobileModalOpen);
@@ -53,6 +92,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     setIsMobileModalOpen(false);
   };
 
+  const getPageName = () => {
+    // next-intl's usePathname returns pathname without locale
+    const parts = pathname.split("/").filter(Boolean);
+    return parts.length > 0 ? parts[0] : "";
+  };
+
+  const currentPageName = getPageName();
+
   return (
     <>
       {/* Mobile Modal Overlay */}
@@ -60,14 +107,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden">
           <div className="flex flex-col h-full">
             {/* Modal Header */}
-            <div className="flex items-center border justify-between px-3 py-2.5 border-y mt-2 border-dashed">
+            <div className="flex items-center justify-between px-3 py-2.5 border-y mt-2 border-dashed">
               <Link
-                href={`/${locale}`}
+                href="/"
                 className="flex items-center gap-2"
                 onClick={closeMobileModal}
               >
                 <Circle size={15} />
-                <span className="font-mono text-sm">Soma Takata</span>
+                <span className="font-mono text-sm">Agenda</span>
               </Link>
               <button
                 onClick={closeMobileModal}
@@ -81,11 +128,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex-1 overflow-y-auto">
               <div className="flex flex-col">
                 {/* Navigation Items */}
-                {techConfig.map((tech) => {
-                  if (
-                    pathname &&
-                    pathname.replace(/^\//, "") === tech.name.toLowerCase()
-                  ) {
+                {techConfig.map((tech, index) => {
+                  const techPath = tech.link.replace("/", "");
+                  if (currentPageName === techPath) {
                     return (
                       <div
                         key={tech.name}
@@ -108,19 +153,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     );
                   }
 
-                  return (
-                    <a
-                      href={`/${locale}${tech.link}`}
-                      key={tech.name}
-                      className={cn(
-                        "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground",
-                      )}
-                      onClick={closeMobileModal}
-                    >
-                      <span className="">{tech.icon}</span>
-                      <p className="text-sm">{tech.name}</p>
-                    </a>
-                  );
+                  if (currentPageName !== techPath) {
+                    return (
+                      <Link
+                        href={tech.link}
+                        key={tech.name}
+                        className={cn(
+                          cn(
+                            "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground",
+                          ),
+                        )}
+                      >
+                        <span className="">{tech.icon}</span>
+                        <p className="text-sm">{tech.name}</p>
+                      </Link>
+                    );
+                  }
+                  return null;
                 })}
 
                 {/* Social Links */}
@@ -219,7 +268,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             className="font-mono text-sm flex-1 flex items-center h-full px-3 border-dashed"
           >
             <Link
-              href={`/${locale}`}
+              href="/"
               className="hover:underline flex items-center gap-2"
             >
               <Circle size={15} />
@@ -234,26 +283,74 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           >
             <AlignJustify size={15} />
           </div>
+          {/* {!isPending &&
+                  (session ? (
+                    <Button
+                      className="h-full border-dashed"
+                      size="lg"
+                      variant="ghost"
+                      asChild
+                    >
+                      <Link
+                        href="/dashboard"
+                        className="flex items-center gap-2 group/nav"
+                      >
+                        <span>Dashboard</span>
+                        <div className="relative z-10 size-4 overflow-hidden flex items-center justify-center">
+                          <ArrowUpRight className="-z-10 absolute opacity-100 scale-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover/nav:-translate-y-5 group-hover/nav:translate-x-5 group-hover/nav:opacity-0 group-hover/nav:scale-0 transition-all duration-200" />
+                          <ArrowUpRight className="absolute -z-10 -bottom-4 -left-4 opacity-0 scale-0 group-hover/nav:-translate-y-[15px] group-hover/nav:translate-x-4 group-hover/nav:opacity-100 group-hover/nav:scale-100 transition-all duration-200" />
+                        </div>
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button
+                      className="h-full border-dashed"
+                      size="lg"
+                      variant="ghost"
+                      asChild
+                    >
+                      <Link
+                        href="/sign-in"
+                        className="flex items-center gap-2 group/nav"
+                      >
+                        <span>Sign In</span>
+                        <div className="relative z-10 size-4 overflow-hidden flex items-center justify-center">
+                          <ArrowUpRight className="-z-10 absolute opacity-100 scale-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover/nav:-translate-y-5 group-hover/nav:translate-x-5 group-hover/nav:opacity-0 group-hover/nav:scale-0 transition-all duration-200" />
+                          <ArrowUpRight className="absolute -z-10 -bottom-4 -left-4 opacity-0 scale-0 group-hover/nav:-translate-y-[15px] group-hover/nav:translate-x-4 group-hover/nav:opacity-100 group-hover/nav:scale-100 transition-all duration-200" />
+                        </div>
+                      </Link>
+                    </Button>
+                  ))} */}
+          {/* <UserProfile className="border-dashed size-10 md:size-14" /> */}
         </div>
         <div className="flex flex-col bg-background items-center justify-start group/soma border-dashed">
-          {techConfig.map((tech) => (
-            <div
-              key={tech.name}
-              className="relative w-full p-6 transition-all duration-150 group/item border-dashed border-b"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <span className="group-hover/item:animate-pulse">
-                  {tech.icon}
-                </span>
-                <h1 className="text-3xl font-bold font-heading tracking-tight">
-                  {tech.name}
-                </h1>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                {tech.description}
-              </p>
-            </div>
-          ))}
+          {techConfig.map((tech, index) => {
+            const techPath = tech.link.replace("/", "");
+            if (currentPageName === techPath) {
+              return (
+                <div
+                  key={tech.name}
+                  className={cn(
+                    "relative w-full p-6  transition-all duration-150 group/item border-dashed border-b",
+                  )}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="group-hover/item:animate-pulse">
+                      {tech.icon}
+                    </span>
+                    <h1 className="text-3xl font-bold font-heading tracking-tight">
+                      {tech.name}
+                    </h1>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {tech.description}
+                  </p>
+                </div>
+              );
+            }
+
+            return null;
+          })}
         </div>
       </div>
 
@@ -266,7 +363,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className="md:border-b w-full border-dashed flex items-center justify-start"
               >
                 <Link
-                  href={`/${locale}`}
+                  href="/"
                   className="flex items-center gap-1 w-full p-3"
                 >
                   <svg
@@ -288,18 +385,49 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <p className="text-lg">Soma Takata</p>
                 </Link>
               </div>
-              {techConfig.map((tech) => (
-                <a
-                  href={`/${locale}${tech.link}`}
-                  key={tech.name}
-                  className={cn(
-                    "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground",
-                  )}
-                >
-                  <span className="">{tech.icon}</span>
-                  <p className="text-sm">{tech.name}</p>
-                </a>
-              ))}
+              {techConfig.map((tech, index) => {
+                const techPath = tech.link.replace("/", "");
+                if (currentPageName === techPath) {
+                  return (
+                    <div
+                      key={tech.name}
+                      className={cn(
+                        "relative w-full p-6  transition-all duration-150 group/item border-dashed border-b",
+                      )}
+                    >
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="group-hover/item:animate-pulse">
+                          {tech.icon}
+                        </span>
+                        <h1 className="text-3xl font-bold font-heading tracking-tight">
+                          {tech.name}
+                        </h1>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {tech.description}
+                      </p>
+                    </div>
+                  );
+                }
+
+                if (currentPageName !== techPath) {
+                  return (
+                    <Link
+                      href={tech.link}
+                      key={tech.name}
+                      className={cn(
+                        cn(
+                          "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground",
+                        ),
+                      )}
+                    >
+                      <span className="">{tech.icon}</span>
+                      <p className="text-sm">{tech.name}</p>
+                    </Link>
+                  );
+                }
+                return null;
+              })}
               <div
                 id="cta"
                 className="hidden md:flex flex-wrap items-center gap-4 py-11 border-b border-dashed w-full"
@@ -318,6 +446,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     target="_blank"
                     className="gap-2 group"
                   >
+                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     <Github className="size-4" />
                     <span>GitHub</span>
                   </a>
@@ -332,6 +461,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     target="_blank"
                     className="gap-2 group"
                   >
+                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     <Twitter className="size-4" />
                     <span>JP</span>
                   </a>
@@ -346,6 +476,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     target="_blank"
                     className="gap-2 group"
                   >
+                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     <Twitter className="size-4" />
                     <span>Global</span>
                   </a>
@@ -360,6 +491,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     target="_blank"
                     className="gap-2 group"
                   >
+                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     <Zap className="size-4" />
                     <span>Zenn</span>
                   </a>
@@ -374,6 +506,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     target="_blank"
                     className="gap-2 group"
                   >
+                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                     <Linkedin className="size-4" />
                     <span>Linkedin</span>
                   </a>
@@ -387,9 +520,49 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 className="hidden w-full md:flex items-center justify-end border-b border-dashed divide-x"
               >
                 <ThemeAndLanguageTogglersContainer />
+                {/* {!isPending &&
+                  (session ? (
+                    <Button
+                      className="h-full border-dashed"
+                      size="lg"
+                      variant="ghost"
+                      asChild
+                    >
+                      <Link
+                        href="/dashboard"
+                        className="flex items-center gap-2 group/nav"
+                      >
+                        <span>Dashboard</span>
+                        <div className="relative z-10 size-4 overflow-hidden flex items-center justify-center">
+                          <ArrowUpRight className="-z-10 absolute opacity-100 scale-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover/nav:-translate-y-5 group-hover/nav:translate-x-5 group-hover/nav:opacity-0 group-hover/nav:scale-0 transition-all duration-200" />
+                          <ArrowUpRight className="absolute -z-10 -bottom-4 -left-4 opacity-0 scale-0 group-hover/nav:-translate-y-[15px] group-hover/nav:translate-x-4 group-hover/nav:opacity-100 group-hover/nav:scale-100 transition-all duration-200" />
+                        </div>
+                      </Link>
+                    </Button>
+                  ) : (
+                    <Button
+                      className="h-full border-dashed"
+                      size="lg"
+                      variant="ghost"
+                      asChild
+                    >
+                      <Link
+                        href="/sign-in"
+                        className="flex items-center gap-2 group/nav"
+                      >
+                        <span>Sign In</span>
+                        <div className="relative z-10 size-4 overflow-hidden flex items-center justify-center">
+                          <ArrowUpRight className="-z-10 absolute opacity-100 scale-100 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 group-hover/nav:-translate-y-5 group-hover/nav:translate-x-5 group-hover/nav:opacity-0 group-hover/nav:scale-0 transition-all duration-200" />
+                          <ArrowUpRight className="absolute -z-10 -bottom-4 -left-4 opacity-0 scale-0 group-hover/nav:-translate-y-[15px] group-hover/nav:translate-x-4 group-hover/nav:opacity-100 group-hover/nav:scale-100 transition-all duration-200" />
+                        </div>
+                      </Link>
+                    </Button>
+                  ))} */}
+                {/* <UserProfile className="border-dashed size-10 md:size-14" /> */}
               </div>
               <div className="flex-1 relative">
                 <div className="md:absolute inset-0 md:overflow-y-auto">
+                  {/* Page content is inserted here */}
                   {children}
                 </div>
               </div>

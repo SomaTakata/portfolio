@@ -1,4 +1,4 @@
-import { Circle } from "../page";
+export const dynamic = "force-dynamic";
 
 export default function AuthLayout({
   children,
@@ -16,3 +16,16 @@ export default function AuthLayout({
     </div>
   );
 }
+
+const Circle = () => {
+  return (
+    <svg
+      className="w-full h-full aspect-square"
+      viewBox="0 0 400 400"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="200" cy="200" r="100" fill="CurrentColor" />
+    </svg>
+  );
+};

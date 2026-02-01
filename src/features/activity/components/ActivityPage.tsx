@@ -10,8 +10,9 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
+import { Locale } from "@/types";
 
-export default function ActivityPage() {
+export default function ActivityPage({ locale }: { locale: Locale }) {
   return (
     <div className="flex justify-center items-center p-4 h-full">
       <Card className="w-full max-w-md border-dashed border-2 rounded-none shadow-none">

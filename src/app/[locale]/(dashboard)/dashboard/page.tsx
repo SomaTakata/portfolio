@@ -1,4 +1,7 @@
+export const dynamic = "force-dynamic";
+
 import { getUser } from "@/lib/auth-utils";
+import { Locale } from "@/types";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,7 +15,12 @@ import { Github } from "lucide-react";
 import { siteConfig } from "@/constants/site.config";
 import Link from "next/link";
 
-export default async function DashboardPage() {
+export default async function DashboardPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
   const user = await getUser();
 
   return (
@@ -97,7 +105,7 @@ export default async function DashboardPage() {
           <p>Signed in as: {user?.email}</p>
           <p>
             Built with{" "}
-            <Link href="/" className="font-bold hover:underline">
+            <Link href={`/${locale}`} className="font-bold hover:underline">
               Soma
             </Link>
           </p>

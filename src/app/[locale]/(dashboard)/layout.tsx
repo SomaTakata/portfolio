@@ -1,4 +1,7 @@
+export const dynamic = "force-dynamic";
+
 import ThemeAndLanguageTogglersContainer from "@/components/theme/togglers-container";
+import { Locale } from "@/types";
 import { Button } from "@/components/ui/button";
 import { UserProfile } from "@/components/user-profile";
 import { siteConfig } from "@/constants/site.config";
@@ -12,16 +15,20 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
+  params,
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
+
   return (
     <div className="w-full h-screen overflow-hidden flex flex-col">
-      <MockNavbar />
+      <MockNavbar locale={locale} />
       <div className="flex h-full">
-        <MockSidebar />
+        <MockSidebar locale={locale} />
         <div id="main" className="flex-1 overflow-y-auto">
           {children}
         </div>
@@ -30,7 +37,7 @@ export default function DashboardLayout({
   );
 }
 
-const MockNavbar = () => {
+const MockNavbar = ({ locale }: { locale: string }) => {
   return (
     <div
       id="nav"
@@ -45,7 +52,7 @@ const MockNavbar = () => {
           className="w-full h-full font-heading text-lg md:text-2xl font-bold"
           asChild
         >
-          <Link href="/">
+          <Link href={`/${locale}`}>
             <span>{siteConfig.name}</span>
           </Link>
         </Button>
@@ -94,7 +101,7 @@ const MockNavbar = () => {
   );
 };
 
-const MockSidebar = () => {
+const MockSidebar = ({ locale }: { locale: string }) => {
   return (
     <div
       id="sidebar"
@@ -106,7 +113,7 @@ const MockSidebar = () => {
           className="border-dashed h-14 text-left justify-start pl-8"
           asChild
         >
-          <Link href="/dashboard">
+          <Link href={`/${locale}/dashboard`}>
             <Layout />
             <span>Dashboard</span>
           </Link>

@@ -1,12 +1,31 @@
-import { ExternalLink, Github } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Globe,
+  Smartphone,
+  ShoppingCart,
+  BarChart3,
+  Music,
+  BookOpen,
+  Code2,
+  User,
+} from "lucide-react";
 import { ReactNode } from "react";
 
 export interface ProjectItem {
-  icon: ReactNode;
+  iconType:
+    | "globe"
+    | "smartphone"
+    | "cart"
+    | "chart"
+    | "music"
+    | "book"
+    | "code"
+    | "user";
   period: string;
   title: string;
   description?: string;
-  technologies: string[];
+  technologies: readonly string[];
   link?: string;
   github?: string;
   status: "Live" | "Development";
@@ -17,7 +36,34 @@ interface ProjectItemComponentProps {
   index: number;
 }
 
-export function ProjectItemComponent({ item, index }: ProjectItemComponentProps) {
+const getIcon = (iconType: string): ReactNode => {
+  const iconClass = "size-4";
+  switch (iconType) {
+    case "globe":
+      return <Globe className={iconClass} />;
+    case "smartphone":
+      return <Smartphone className={iconClass} />;
+    case "cart":
+      return <ShoppingCart className={iconClass} />;
+    case "chart":
+      return <BarChart3 className={iconClass} />;
+    case "music":
+      return <Music className={iconClass} />;
+    case "book":
+      return <BookOpen className={iconClass} />;
+    case "code":
+      return <Code2 className={iconClass} />;
+    case "user":
+      return <User className={iconClass} />;
+    default:
+      return <Globe className={iconClass} />;
+  }
+};
+
+export function ProjectItemComponent({
+  item,
+  index,
+}: ProjectItemComponentProps) {
   return (
     <div
       className={
@@ -27,7 +73,7 @@ export function ProjectItemComponent({ item, index }: ProjectItemComponentProps)
     >
       <div className="flex items-start gap-4 w-full">
         <span className="flex items-center text-muted-foreground border-muted-foreground/50 border-dashed justify-center w-10 h-10 bg-background border-1 rounded-full group-hover:bg-background group-hover:text-foreground  flex-shrink-0">
-          {item.icon}
+          {getIcon(item.iconType)}
         </span>
 
         <div className="w-full">

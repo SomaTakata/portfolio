@@ -1,12 +1,67 @@
 "use client";
-import { Terminal, ExternalLink } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
-import { SKILLS_DATA } from "@/features/skills/constants/SKILLS_DATA";
-import { NEWS_DATA } from "@/features/news/constants/NEWS_DATA";
-import { PROJECTS_DATA } from "@/features/projects/constants/PROJECTS_DATA";
-import { TERMINAL_TIMELINE_DATA } from "../constants/TERMINAL_DATA";
+
+import {
+  Terminal,
+  ExternalLink,
+  BookOpen,
+  Users,
+  Globe,
+  Smartphone,
+  ShoppingCart,
+  BarChart3,
+  Music,
+  Code2,
+  User,
+} from "lucide-react";
+import { useState, useEffect, useRef, ReactNode } from "react";
+import { useTranslations } from "next-intl";
+
+const getNewsIcon = (iconType: string): ReactNode => {
+  const iconClass = "size-4";
+  switch (iconType) {
+    case "BookOpen":
+      return <BookOpen className={iconClass} />;
+    case "Users":
+      return <Users className={iconClass} />;
+    default:
+      return <BookOpen className={iconClass} />;
+  }
+};
+
+const getProjectIcon = (iconType: string): ReactNode => {
+  const iconClass = "size-4";
+  switch (iconType) {
+    case "globe":
+      return <Globe className={iconClass} />;
+    case "smartphone":
+      return <Smartphone className={iconClass} />;
+    case "cart":
+      return <ShoppingCart className={iconClass} />;
+    case "chart":
+      return <BarChart3 className={iconClass} />;
+    case "music":
+      return <Music className={iconClass} />;
+    case "book":
+      return <BookOpen className={iconClass} />;
+    case "code":
+      return <Code2 className={iconClass} />;
+    case "user":
+      return <User className={iconClass} />;
+    default:
+      return <Globe className={iconClass} />;
+  }
+};
 
 export default function TerminalPage() {
+  const tSkills = useTranslations("skills");
+  const tNews = useTranslations("news");
+  const tProjects = useTranslations("projects");
+  const tTerminal = useTranslations("terminal");
+
+  const SKILLS_DATA = tSkills.raw("items");
+  const NEWS_DATA = tNews.raw("items");
+  const PROJECTS_DATA = tProjects.raw("items");
+  const TERMINAL_TIMELINE_DATA = tTerminal.raw("timeline");
   const [currentLine, setCurrentLine] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const [commandHistory, setCommandHistory] = useState<
@@ -142,7 +197,7 @@ export default function TerminalPage() {
                 className="border-l-2 border-blue-400 pl-4 ml-2 mb-4"
               >
                 <div className="flex items-center gap-2 text-muted-foreground text-xs">
-                  {news.icon}
+                  {getNewsIcon(news.iconType)}
                   <span>[{news.date}]</span>
                   <span className="bg-muted px-2 py-1 rounded text-xs">
                     {news.category}
@@ -179,7 +234,7 @@ export default function TerminalPage() {
                 className="border-l-2 border-green-400 pl-4 ml-2 mb-4"
               >
                 <div className="flex items-center gap-2 text-muted-foreground text-xs mb-1">
-                  {item.icon}
+                  {getProjectIcon(item.iconType)}
                   <span>{item.period}</span>
                   <span
                     className={`px-2 py-1 text-xs font-medium rounded-full ${

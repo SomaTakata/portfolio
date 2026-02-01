@@ -1,8 +1,8 @@
-import { ExternalLink, Calendar } from "lucide-react";
+import { ExternalLink, Calendar, BookOpen, Users } from "lucide-react";
 import { ReactNode } from "react";
 
 export interface NewsItem {
-  icon: ReactNode;
+  iconType: "BookOpen" | "Users";
   date: string;
   title: string;
   description?: string;
@@ -16,6 +16,17 @@ interface NewsItemComponentProps {
   index: number;
 }
 
+const getIcon = (iconType: string) => {
+  const iconMap: { [key: string]: React.FC<any> } = {
+    BookOpen,
+    Users,
+  };
+  const IconComponent = iconMap[iconType];
+  return IconComponent ? (
+    <IconComponent className="w-5 h-5 text-muted-foreground/60" />
+  ) : null;
+};
+
 export function NewsItemComponent({ item, index }: NewsItemComponentProps) {
   return (
     <div
@@ -26,16 +37,14 @@ export function NewsItemComponent({ item, index }: NewsItemComponentProps) {
     >
       <div className="flex items-start gap-4 w-full">
         <span className="flex items-center text-muted-foreground border-muted-foreground/50 border-dashed justify-center w-10 h-10 bg-background border-1 rounded-full group-hover:bg-background group-hover:text-foreground flex-shrink-0">
-          {item.icon}
+          {getIcon(item.iconType)}
         </span>
 
         <div className="w-full">
           <div className="flex items-center justify-between mb-1">
             <div className="flex items-center gap-2">
               <Calendar className="w-3 h-3 text-muted-foreground" />
-              <span className="text-xs text-muted-foreground">
-                {item.date}
-              </span>
+              <span className="text-xs text-muted-foreground">{item.date}</span>
             </div>
             <span className="px-2 py-1 text-xs font-medium rounded-full bg-blue-500/20 text-blue-600">
               {item.type}

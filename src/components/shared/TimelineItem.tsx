@@ -1,7 +1,23 @@
+import {
+  Calendar,
+  Briefcase,
+  GraduationCap,
+  Award,
+  BookOpen,
+  Code,
+  Sparkles,
+} from "lucide-react";
 import { ReactNode } from "react";
 
 export interface TimelineItem {
-  icon: ReactNode;
+  iconType:
+    | "calendar"
+    | "briefcase"
+    | "graduation"
+    | "award"
+    | "book"
+    | "code"
+    | "sparkles";
   period: string;
   title: string;
   description?: string;
@@ -13,6 +29,28 @@ interface TimelineItemComponentProps {
   index: number;
 }
 
+const getIcon = (iconType: string): ReactNode => {
+  const iconClass = "size-4";
+  switch (iconType) {
+    case "calendar":
+      return <Calendar className={iconClass} />;
+    case "briefcase":
+      return <Briefcase className={iconClass} />;
+    case "graduation":
+      return <GraduationCap className={iconClass} />;
+    case "award":
+      return <Award className={iconClass} />;
+    case "book":
+      return <BookOpen className={iconClass} />;
+    case "code":
+      return <Code className={iconClass} />;
+    case "sparkles":
+      return <Sparkles className={iconClass} />;
+    default:
+      return <Calendar className={iconClass} />;
+  }
+};
+
 export function TimelineItemComponent({ item }: TimelineItemComponentProps) {
   return (
     <a
@@ -22,7 +60,7 @@ export function TimelineItemComponent({ item }: TimelineItemComponentProps) {
       className="flex items-center gap-4 group hover:border hover:bg-muted/30 border-dashed p-6"
     >
       <span className="flex items-center shrink-0 text-muted-foreground border-muted-foreground/50 border-dashed justify-center w-10 h-10 bg-background border-1 rounded-full">
-        {item.icon}
+        {getIcon(item.iconType)}
       </span>
       <div className="flex flex-col gap-1">
         <span className="text-xs text-muted-foreground">{item.period}</span>

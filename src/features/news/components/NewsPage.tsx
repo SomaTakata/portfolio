@@ -1,10 +1,15 @@
+"use client";
+
 import { NewsItemComponent } from "@/components/shared/NewsItem";
-import { NEWS_DATA } from "../constants/NEWS_DATA";
+import { useTranslations } from "next-intl";
 
 export default function NewsPage() {
+  const t = useTranslations("news");
+  const NEWS_DATA = t.raw("items");
+
   return (
     <div className="flex flex-col p-4">
-      {NEWS_DATA.map((item, idx) => (
+      {NEWS_DATA.map((item: any, idx: number) => (
         <NewsItemComponent key={idx} item={item} index={idx} />
       ))}
     </div>

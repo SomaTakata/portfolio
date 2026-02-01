@@ -1,0 +1,369 @@
+{
+  "common": {
+    "language": "日本語",
+    "socials": {
+      "github": "GitHub",
+      "x_jp": "JP",
+      "x_global": "Global",
+      "zenn": "Zenn",
+      "linkedin": "Linkedin"
+    },
+    "signOut": "サインアウト"
+  },
+  "nav": {
+    "activity": "アクティビティ",
+    "experience": "経歴",
+    "skills": "スキル",
+    "news": "ニュース",
+    "projects": "プロジェクト",
+    "terminal": "ターミナル"
+  },
+  "home": {
+    "bio": "日本で活動するソフトウェアエンジニアです。フルスタック開発を軸に、Next.js と Tailwind CSS を用いた Web 開発を行っています。",
+    "items": {
+      "experience": {
+        "name": "経歴",
+        "description": "これまでの職務経験やインターン、関わってきたプロジェクトを時系列でまとめています。"
+      },
+      "skills": {
+        "name": "スキル",
+        "description": "フロントエンドを中心とした技術スタックや、得意とする領域を紹介しています。"
+      },
+      "works": {
+        "name": "作品",
+        "description": "個人開発・チーム開発を通して制作してきたプロジェクトを掲載しています。"
+      },
+      "news": {
+        "name": "ニュース",
+        "description": "最近取り組んでいることや制作物の更新情報、発信している内容などをまとめています。"
+      },
+      "terminal": {
+        "name": "ターミナル",
+        "description": "ターミナル風の画面で、プロフィールやスキルをインタラクティブに閲覧できます。"
+      },
+      "activity": {
+        "name": "アクティビティ",
+        "description": "GitHub 上での開発履歴やオープンソースへの取り組みを確認できます。"
+      }
+    }
+  },
+  "news": {
+    "title": "ニュース",
+    "items": [
+      {
+        "iconType": "BookOpen",
+        "date": "2024.9.17",
+        "title": "LayerX サマーインターンシップ経験報告書を投稿しました！",
+        "description": "LayerX での 3ヶ月間のサマーインターンシップでの経験と学びについての詳細な記事です。",
+        "category": "インターンシップ報告",
+        "link": "https://zenn.dev/soma_takata/articles/3a5ad127b57e04",
+        "type": "ブログ投稿"
+      },
+      {
+        "iconType": "Users",
+        "date": "2024.7.26",
+        "title": "How Television でのエンジニア 3 ヶ月インターンシップ経験報告書を投稿しました！",
+        "description": "How Television でのエンジニアインターンシップでの経験と成長について記録しました。",
+        "category": "インターンシップ報告",
+        "link": "https://howtv.hatenablog.com/entry/2024/07/26/174358",
+        "type": "ブログ投稿"
+      }
+    ]
+  },
+  "experience": {
+    "title": "経歴",
+    "items": [
+      {
+        "iconType": "code",
+        "period": "2025.10 -",
+        "title": "D4V (Design for Ventures)",
+        "description": "n8n等を用いた業務自動化・内部ツール開発",
+        "link": "https://d4v.com/"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.10 - 2025.11",
+        "title": "Nulogic Inc.",
+        "description": "Studio Stockの開発に貢献",
+        "link": "https://nulogic.co.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.5 - 2025.7",
+        "title": "Mercari Inc. (Mercari Hallo)",
+        "description": "フロントエンド開発（3ヶ月）",
+        "link": "https://hallo.mercari.com/"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.3 - 2025.4",
+        "title": "Nulogic Inc.",
+        "description": "新機能開発（2ヶ月）",
+        "link": "https://nulogic.co.jp/"
+      },
+      {
+        "iconType": "sparkles",
+        "period": "2025.2 -",
+        "title": "ShibaYoko 代表として創設",
+        "description": "エンジニアとデザイナーのサークルを設立",
+        "link": "https://x.com/ShibaYoko_SIT"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.1 -",
+        "title": "NOT A HOTEL Inc.",
+        "description": "新機能開発（2週間）",
+        "link": "https://notahotel.com/"
+      },
+      {
+        "iconType": "code",
+        "period": "2024.12 -",
+        "title": "Medley Inc.",
+        "description": "フルスタック開発（2週間）",
+        "link": "https://www.medley.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2024.9 -",
+        "title": "LayerX Inc.",
+        "description": "フルスタック開発（2週間）",
+        "link": "https://layerx.co.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2024.4 - 2024.7",
+        "title": "How Television Co., Ltd.",
+        "description": "フロントエンド開発（3ヶ月）",
+        "link": "https://howtelevision.co.jp/"
+      },
+      {
+        "iconType": "sparkles",
+        "period": "2024.3 - 2025.3",
+        "title": "TechNova 代表として創設",
+        "description": "プログラミングサークルを設立",
+        "link": "https://x.com/ShibaYoko_SIT"
+      },
+      {
+        "iconType": "code",
+        "period": "2023.11 - 2024.1",
+        "title": "MichibikuGroup Co., Ltd.",
+        "description": "フロントエンド開発（2ヶ月）",
+        "link": "https://michibikugroup.co.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2023.5 - 2024.2",
+        "title": "株式会社リクルート",
+        "description": "フロントエンド開発（10ヶ月）",
+        "link": "https://www.recruit.co.jp/"
+      },
+      {
+        "iconType": "sparkles",
+        "period": "2022.4 -",
+        "title": "芝浦工業大学入学",
+        "description": "",
+        "link": "https://www.shibaura-it.ac.jp/"
+      }
+    ]
+  },
+  "projects": {
+    "title": "プロジェクト",
+    "items": [
+      {
+        "iconType": "globe",
+        "period": "2024.2 - 現在",
+        "title": "ポートフォリオ",
+        "description": "自分用に作成したポートフォリオサイトです。",
+        "technologies": ["Next.js", "React", "TypeScript", "Framer Motion"],
+        "link": "https://soma-takata.vercel.app/",
+        "github": "",
+        "status": "Live"
+      },
+      {
+        "iconType": "globe",
+        "period": "2025.3 - 2025.3",
+        "title": "Subscription Auto-Cancel",
+        "description": "サブスクリプションを自動的にキャンセルするサービスです。",
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Browser",
+          "Playwright"
+        ],
+        "link": "https://x.com/ysk_en/status/1902151281042714654",
+        "github": "",
+        "status": "Development"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.4 - 2025.4",
+        "title": "Artofolio",
+        "description": "エンジニア向けのポートフォリオサービスで、プロジェクト、技術スキル、ソーシャルメディアリンクを美しく展示します。アート美術館のように。",
+        "technologies": ["Next.js", "React", "TypeScript", "Three.js"],
+        "link": "https://github.com/SomaTakata/ARTOFOLIO",
+        "github": "",
+        "status": "Development"
+      },
+      {
+        "iconType": "user",
+        "period": "2024.5 - 現在",
+        "title": "MazeMaze",
+        "description": "AI とポッドキャスティングができるサービスです。",
+        "technologies": ["Next.js", "React", "TypeScript", "RealTime API"],
+        "link": "https://student.redesigner.jp/portfolios/PF31c7a227d463980aa3d989ca7f9879c9",
+        "github": "",
+        "status": "Development"
+      }
+    ]
+  },
+  "skills": {
+    "title": "スキル",
+    "items": [
+      {
+        "name": "TypeScript",
+        "experience": "3年",
+        "proficiency": 90,
+        "description": "主に開発言語として使用",
+        "category": "言語",
+        "link": "https://www.typescriptlang.org/"
+      },
+      {
+        "name": "React",
+        "experience": "3年",
+        "proficiency": 85,
+        "description": "フロントエンド開発の主なフレームワーク",
+        "category": "フロントエンド",
+        "link": "https://reactjs.org/"
+      },
+      {
+        "name": "Next.js",
+        "experience": "2年",
+        "proficiency": 80,
+        "description": "Web アプリケーション開発に使用",
+        "category": "フレームワーク",
+        "link": "https://nextjs.org/"
+      },
+      {
+        "name": "Node.js",
+        "experience": "2年",
+        "proficiency": 75,
+        "description": "バックエンド開発に使用",
+        "category": "バックエンド",
+        "link": "https://nodejs.org/"
+      },
+      {
+        "name": "TailwindCSS",
+        "experience": "2年",
+        "proficiency": 85,
+        "description": "スタイリングに使用",
+        "category": "スタイリング",
+        "link": "https://tailwindcss.com/"
+      },
+      {
+        "name": "Golang",
+        "experience": "1年",
+        "proficiency": 70,
+        "description": "バックエンド開発に使用",
+        "category": "言語",
+        "link": "https://golang.org/"
+      }
+    ]
+  },
+  "terminal": {
+    "title": "ターミナル",
+    "timeline": [
+      {
+        "date": "2025.10 -",
+        "output": "D4V (Design for Ventures)",
+        "description": "n8n等を用いた業務自動化・内部ツール開発",
+        "link": "https://d4v.com/",
+        "type": "work"
+      },
+      {
+        "date": "2025.10 - 2025.11",
+        "output": "Nulogic Inc.",
+        "description": "Studio Stockの開発に貢献",
+        "link": "https://nulogic.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2025.5 - 2025.7",
+        "output": "Mercari Inc. (Mercari Hallo)",
+        "description": "フロントエンド開発（3ヶ月）",
+        "link": "https://hallo.mercari.com/",
+        "type": "work"
+      },
+      {
+        "date": "2025.3",
+        "output": "Nulogic Inc.",
+        "description": "新機能開発（2ヶ月）",
+        "link": "https://nulogic.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2025.2",
+        "output": "ShibaYoko 代表として創設",
+        "description": "エンジニアとデザイナーのサークルを設立",
+        "link": "https://x.com/ShibaYoko_SIT",
+        "type": "leadership"
+      },
+      {
+        "date": "2025.1",
+        "output": "NOT A HOTEL Inc.",
+        "description": "新機能開発（2週間）",
+        "link": "https://notahotel.com/",
+        "type": "work"
+      },
+      {
+        "date": "2024.12",
+        "output": "Medley Inc.",
+        "description": "フルスタック開発（2週間）",
+        "link": "https://www.medley.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2024.9",
+        "output": "LayerX Inc.",
+        "description": "フルスタック開発（2週間）",
+        "link": "https://layerx.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2024.4",
+        "output": "How Television Co., Ltd.",
+        "description": "フロントエンド開発（3ヶ月）",
+        "link": "https://howtelevision.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2024.3",
+        "output": "TechNova 代表として創設",
+        "description": "プログラミングサークルを設立",
+        "link": "https://x.com/ShibaYoko_SIT",
+        "type": "leadership"
+      },
+      {
+        "date": "2023.11",
+        "output": "MichibikuGroup Co., Ltd.",
+        "description": "フロントエンド開発（2ヶ月）",
+        "link": "https://michibikugroup.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2023.5",
+        "output": "株式会社リクルート",
+        "description": "フロントエンド開発（10ヶ月）",
+        "link": "https://www.recruit.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2022.4",
+        "output": "芝浦工業大学入学",
+        "description": "コンピュータサイエンス学部で勉強を開始",
+        "link": "https://www.shibaura-it.ac.jp/",
+        "type": "education"
+      }
+    ]
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "common": {
+    "language": "English",
+    "socials": {
+      "github": "GitHub",
+      "x_jp": "JP",
+      "x_global": "Global",
+      "zenn": "Zenn",
+      "linkedin": "Linkedin"
+    },
+    "signOut": "Sign Out"
+  },
+  "nav": {
+    "activity": "Activity",
+    "experience": "Experience",
+    "skills": "Skills",
+    "news": "News",
+    "projects": "Projects",
+    "terminal": "Terminal"
+  },
+  "home": {
+    "bio": "Hi I am SomaTakata, a software engineer in Japan. I am a full stack developer. I always use Next.js and Tailwind CSS.",
+    "items": {
+      "experience": {
+        "name": "Experience",
+        "description": "A timeline of my professional background and career highlights."
+      },
+      "skills": {
+        "name": "Skills",
+        "description": "A showcase of my technical and soft skills across various domains."
+      },
+      "works": {
+        "name": "Works",
+        "description": "Selected projects that demonstrate my capabilities and creativity."
+      },
+      "news": {
+        "name": "News",
+        "description": "Latest updates, announcements, and things I'm currently working on."
+      },
+      "terminal": {
+        "name": "Terminal",
+        "description": "An interactive terminal-style space to explore more about me."
+      },
+      "activity": {
+        "name": "Activity",
+        "description": "GitHub activity and contributions across various open source projects."
+      }
+    }
+  },
+  "news": {
+    "title": "News",
+    "items": [
+      {
+        "iconType": "BookOpen",
+        "date": "2024.9.17",
+        "title": "Posted LayerX Summer Internship Experience Report!",
+        "description": "Detailed writeup about my experiences and learnings during a 3-month summer internship at LayerX.",
+        "category": "Internship Report",
+        "link": "https://zenn.dev/soma_takata/articles/3a5ad127b57e04",
+        "type": "Blog Post"
+      },
+      {
+        "iconType": "Users",
+        "date": "2024.7.26",
+        "title": "Posted 3-month engineer internship experience report at How Television!",
+        "description": "Documented my experiences and growth during the engineering internship at How Television.",
+        "category": "Internship Report",
+        "link": "https://howtv.hatenablog.com/entry/2024/07/26/174358",
+        "type": "Blog Post"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "items": [
+      {
+        "iconType": "code",
+        "period": "2025.10 -",
+        "title": "D4V (Design for Ventures)",
+        "description": "Internal tools & workflow automation using n8n",
+        "link": "https://d4v.com/"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.10 - 2025.11",
+        "title": "Nulogic Inc.",
+        "description": "Contributed to Studio Stock development",
+        "link": "https://nulogic.co.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.5 - 2025.7",
+        "title": "Mercari Inc. (Mercari Hallo)",
+        "description": "Frontend development (3 months)",
+        "link": "https://hallo.mercari.com/"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.3 - 2025.4",
+        "title": "Nulogic Inc.",
+        "description": "New feature development (2 months)",
+        "link": "https://nulogic.co.jp/"
+      },
+      {
+        "iconType": "sparkles",
+        "period": "2025.2 -",
+        "title": "Founded ShibaYoko as Representative",
+        "description": "Established engineer-designer circle",
+        "link": "https://x.com/ShibaYoko_SIT"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.1 -",
+        "title": "NOT A HOTEL Inc.",
+        "description": "New feature development (2 weeks)",
+        "link": "https://notahotel.com/"
+      },
+      {
+        "iconType": "code",
+        "period": "2024.12 -",
+        "title": "Medley Inc.",
+        "description": "Full-stack development (2 weeks)",
+        "link": "https://www.medley.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2024.9 -",
+        "title": "LayerX Inc.",
+        "description": "Full-stack development (2 weeks)",
+        "link": "https://layerx.co.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2024.4 - 2024.7",
+        "title": "How Television Co., Ltd.",
+        "description": "Frontend development (3 months)",
+        "link": "https://howtelevision.co.jp/"
+      },
+      {
+        "iconType": "sparkles",
+        "period": "2024.3 - 2025.3",
+        "title": "Founded TechNova as Representative",
+        "description": "Established programming circle",
+        "link": "https://x.com/ShibaYoko_SIT"
+      },
+      {
+        "iconType": "code",
+        "period": "2023.11 - 2024.1",
+        "title": "MichibikuGroup Co., Ltd.",
+        "description": "Frontend development (2 months)",
+        "link": "https://michibikugroup.co.jp/"
+      },
+      {
+        "iconType": "code",
+        "period": "2023.5 - 2024.2",
+        "title": "Recruit Co., Ltd.",
+        "description": "Frontend development (10 months)",
+        "link": "https://www.recruit.co.jp/"
+      },
+      {
+        "iconType": "sparkles",
+        "period": "2022.4 -",
+        "title": "Entered Shibaura Institute of Technology",
+        "description": "",
+        "link": "https://www.shibaura-it.ac.jp/"
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "items": [
+      {
+        "iconType": "globe",
+        "period": "2024.2 - Present",
+        "title": "Portfolio",
+        "description": "This is a portfolio website that I made for myself.",
+        "technologies": ["Next.js", "React", "TypeScript", "Framer Motion"],
+        "link": "https://soma-takata.vercel.app/",
+        "github": "",
+        "status": "Live"
+      },
+      {
+        "iconType": "globe",
+        "period": "2025.3 - 2025.3",
+        "title": "Subscription Auto-Cancel",
+        "description": "This is a service that automatically cancels subscriptions.",
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Browser",
+          "Playwright"
+        ],
+        "link": "https://x.com/ysk_en/status/1902151281042714654",
+        "github": "",
+        "status": "Development"
+      },
+      {
+        "iconType": "code",
+        "period": "2025.4 - 2025.4",
+        "title": "Artofolio",
+        "description": "Artofolio is a portfolio service for engineers that beautifully showcases your projects, technical skills, and social media links—just like an art museum.",
+        "technologies": ["Next.js", "React", "TypeScript", "Three.js"],
+        "link": "https://github.com/SomaTakata/ARTOFOLIO",
+        "github": "",
+        "status": "Development"
+      },
+      {
+        "iconType": "user",
+        "period": "2024.5 - Present",
+        "title": "MazeMaze",
+        "description": "This is a service that allows podcasting with AI.",
+        "technologies": ["Next.js", "React", "TypeScript", "RealTime API"],
+        "link": "https://student.redesigner.jp/portfolios/PF31c7a227d463980aa3d989ca7f9879c9",
+        "github": "",
+        "status": "Development"
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "items": [
+      {
+        "name": "TypeScript",
+        "experience": "3 years",
+        "proficiency": 90,
+        "description": "Used as primary development language",
+        "category": "Language",
+        "link": "https://www.typescriptlang.org/"
+      },
+      {
+        "name": "React",
+        "experience": "3 years",
+        "proficiency": 85,
+        "description": "Main framework for frontend development",
+        "category": "Frontend",
+        "link": "https://reactjs.org/"
+      },
+      {
+        "name": "Next.js",
+        "experience": "2 years",
+        "proficiency": 80,
+        "description": "Used for web application development",
+        "category": "Framework",
+        "link": "https://nextjs.org/"
+      },
+      {
+        "name": "Node.js",
+        "experience": "2 years",
+        "proficiency": 75,
+        "description": "Used for backend development",
+        "category": "Backend",
+        "link": "https://nodejs.org/"
+      },
+      {
+        "name": "TailwindCSS",
+        "experience": "2 years",
+        "proficiency": 85,
+        "description": "Used for styling",
+        "category": "Styling",
+        "link": "https://tailwindcss.com/"
+      },
+      {
+        "name": "Golang",
+        "experience": "1 years",
+        "proficiency": 70,
+        "description": "Used for backend development",
+        "category": "Language",
+        "link": "https://golang.org/"
+      }
+    ]
+  },
+  "terminal": {
+    "title": "Terminal",
+    "timeline": [
+      {
+        "date": "2025.10 -",
+        "output": "D4V (Design for Ventures)",
+        "description": "Internal tools & workflow automation using n8n",
+        "link": "https://d4v.com/",
+        "type": "work"
+      },
+      {
+        "date": "2025.10 - 2025.11",
+        "output": "Nulogic Inc.",
+        "description": "Contributed to Studio Stock development",
+        "link": "https://nulogic.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2025.5 - 2025.7",
+        "output": "Mercari Inc. (Mercari Hallo)",
+        "description": "Frontend development (3 months)",
+        "link": "https://hallo.mercari.com/",
+        "type": "work"
+      },
+      {
+        "date": "2025.3",
+        "output": "Nulogic Inc.",
+        "description": "New feature development (2 months)",
+        "link": "https://nulogic.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2025.2",
+        "output": "Founded ShibaYoko as Representative",
+        "description": "Established engineer-designer circle",
+        "link": "https://x.com/ShibaYoko_SIT",
+        "type": "leadership"
+      },
+      {
+        "date": "2025.1",
+        "output": "NOT A HOTEL Inc.",
+        "description": "New feature development (2 weeks)",
+        "link": "https://notahotel.com/",
+        "type": "work"
+      },
+      {
+        "date": "2024.12",
+        "output": "Medley Inc.",
+        "description": "Full-stack development (2 weeks)",
+        "link": "https://www.medley.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2024.9",
+        "output": "LayerX Inc.",
+        "description": "Full-stack development (2 weeks)",
+        "link": "https://layerx.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2024.4",
+        "output": "How Television Co., Ltd.",
+        "description": "Frontend development (3 months)",
+        "link": "https://howtelevision.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2024.3",
+        "output": "Founded TechNova as Representative",
+        "description": "Established programming circle",
+        "link": "https://x.com/ShibaYoko_SIT",
+        "type": "leadership"
+      },
+      {
+        "date": "2023.11",
+        "output": "MichibikuGroup Co., Ltd.",
+        "description": "Frontend development (2 months)",
+        "link": "https://michibikugroup.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2023.5",
+        "output": "Recruit Co., Ltd.",
+        "description": "Frontend development (10 months)",
+        "link": "https://www.recruit.co.jp/",
+        "type": "work"
+      },
+      {
+        "date": "2022.4",
+        "output": "Entered Shibaura Institute of Technology",
+        "description": "Started studying in Computer Science Department",
+        "link": "https://www.shibaura-it.ac.jp/",
+        "type": "education"
+      }
+    ]
+  }
+}

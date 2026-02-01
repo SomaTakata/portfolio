@@ -1,3 +1,5 @@
+export type Locale = "en" | "ja";
+
 export type SiteConfig = {
   name: string;
   title: string;

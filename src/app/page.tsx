@@ -1,7 +1,7 @@
 "use client";
 
 // import { useState } from "react";
-import ThemeToggler from "@/components/theme/toggler";
+import ThemeAndLanguageTogglersContainer from "@/components/theme/togglers-container";
 import { Button } from "@/components/ui/button";
 import { UserProfile } from "@/components/user-profile";
 import { siteConfig } from "@/constants/site.config";
@@ -24,11 +24,14 @@ import {
   CircleIcon,
 } from "lucide-react";
 import Link from "next/link";
+import getTechConfig from "@/constants/techConfig";
 // import { useSession } from "@/lib/auth-client";
 
 export default function Home() {
   // const [copied, setCopied] = useState(false);
   // const { data: session, isPending } = useSession();
+
+  const techConfig = getTechConfig();
 
   return (
     <div className="w-full h-auto md:h-screen overflow-y-auto md:overflow-hidden flex flex-col items-center justify-center">
@@ -97,7 +100,7 @@ export default function Home() {
                   </Button>
                 ))} */}
               {/* <UserProfile className="border-dashed size-10 md:size-14" /> */}
-              <ThemeToggler className="border-dashed size-10 md:size-14" />
+              <ThemeAndLanguageTogglersContainer />
             </div>
             <div id="hero" className="flex flex-col p-4">
               <h1 className="head-text-md">Soma Takata</h1>
@@ -206,7 +209,7 @@ export default function Home() {
                     index % 2 === 0 && index !== techConfig.length - 1,
                   "lg:border-r":
                     index % 3 !== 2 && index !== techConfig.length - 1,
-                }
+                },
               )}
             >
               {(index === 0 || index === techConfig.length - 1) && (
@@ -216,7 +219,7 @@ export default function Home() {
                     {
                       "-bottom-2 -right-2": index === 0,
                       "-top-2 -left-2": index === techConfig.length - 1,
-                    }
+                    },
                   )}
                 />
               )}
@@ -244,57 +247,6 @@ export default function Home() {
     </div>
   );
 }
-
-const techConfig = [
-  {
-    icon: <PanelsTopLeft className="size-4" />,
-    category: "1",
-    name: "Experience",
-    description:
-      "A timeline of my professional background and career highlights.",
-    link: "/experience",
-  },
-  {
-    icon: <Shield className="size-4" />,
-    category: "2",
-    name: "Skills",
-    description:
-      "A showcase of my technical and soft skills across various domains.",
-    link: "skills",
-  },
-  {
-    icon: <Database className="size-4" />,
-    category: "3",
-    name: "Works",
-    description:
-      "Selected projects that demonstrate my capabilities and creativity.",
-    link: "/works",
-  },
-  {
-    icon: <Newspaper className="size-4" />,
-    category: "4",
-    name: "News",
-    description:
-      "Latest updates, announcements, and things I'm currently working on.",
-    link: "/news",
-  },
-  {
-    icon: <Terminal className="size-4" />,
-    category: "5",
-    name: "Terminal",
-    description:
-      "An interactive terminal-style space to explore more about me.",
-    link: "/terminal",
-  },
-  {
-    icon: <Activity className="size-4" />,
-    category: "6",
-    name: "Activity",
-    description:
-      "GitHub activity and contributions across various open source projects.",
-    link: "/activity",
-  },
-];
 
 export const Circle = () => {
   return (
