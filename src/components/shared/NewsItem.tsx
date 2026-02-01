@@ -31,8 +31,8 @@ export function NewsItemComponent({ item, index }: NewsItemComponentProps) {
   return (
     <div
       className={
-        `flex items-center w-full gap-4 group border-b border-dashed p-6 hover:bg-muted/30 ` +
-        (index === 0 ? "hover:border" : "hover:border-x")
+        `flex items-center w-full gap-4 group border-b border-dashed py-6 md:px-6 hover:bg-muted/30 ` +
+        (index === 0 ? "hover:border" : "hover:border")
       }
     >
       <div className="flex items-start gap-4 w-full">
@@ -60,7 +60,7 @@ export function NewsItemComponent({ item, index }: NewsItemComponentProps) {
           )}
 
           <div className="flex items-center justify-between mt-4">
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3">
               <span className="px-2 py-1 text-xs bg-muted text-muted-foreground rounded">
                 {item.category}
               </span>

@@ -8,7 +8,7 @@ export default function ProjectsPage() {
   const PROJECTS_DATA = t.raw("items");
 
   return (
-    <div className="flex flex-col p-4">
+    <div className="flex flex-col md:gap-3 px-4 md:p-4">
       {PROJECTS_DATA.map((item: any, idx: number) => (
         <ProjectItemComponent key={idx} item={item} index={idx} />
       ))}

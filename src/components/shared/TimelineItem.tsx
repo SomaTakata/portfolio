@@ -57,7 +57,7 @@ export function TimelineItemComponent({ item }: TimelineItemComponentProps) {
       href={item.link}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-4 group hover:border hover:bg-muted/30 border-dashed p-6"
+      className="flex items-center gap-4 group md:hover:border hover:bg-muted/30 border-dashed px-0 py-6 border-b  md:p-6"
     >
       <span className="flex items-center shrink-0 text-muted-foreground border-muted-foreground/50 border-dashed justify-center w-10 h-10 bg-background border-1 rounded-full">
         {getIcon(item.iconType)}

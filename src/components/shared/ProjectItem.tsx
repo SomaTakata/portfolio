@@ -66,10 +66,7 @@ export function ProjectItemComponent({
 }: ProjectItemComponentProps) {
   return (
     <div
-      className={
-        `flex items-center w-full gap-4 group border-b border-dashed p-6 hover:bg-muted/30 ` +
-        (index === 0 ? "hover:border" : "hover:border-x")
-      }
+      className={`flex items-center w-full gap-4 group border-b border-dashed py-6 md:px-6 hover:border hover:bg-muted/30 `}
     >
       <div className="flex items-start gap-4 w-full">
         <span className="flex items-center text-muted-foreground border-muted-foreground/50 border-dashed justify-center w-10 h-10 bg-background border-1 rounded-full group-hover:bg-background group-hover:text-foreground  flex-shrink-0">
@@ -99,8 +96,8 @@ export function ProjectItemComponent({
               {item.description}
             </p>
           )}
-          <div className="flex items-center justify-between mt-6">
-            <div className="flex flex-wrap gap-2">
+          <div className="flex items-start justify-between mt-6">
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {item.technologies.map((tech) => (
                 <span
                   key={tech}

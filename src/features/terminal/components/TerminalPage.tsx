@@ -257,7 +257,7 @@ export default function TerminalPage() {
                       {item.description}
                     </div>
                   )}
-                  <div className="flex flex-wrap gap-2 mt-2">
+                  <div className="flex flex-wrap gap-3 mt-2">
                     {item.technologies.map((tech) => (
                       <span
                         key={tech}

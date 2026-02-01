@@ -105,7 +105,7 @@ export default function Home({
     <>
       {/* Mobile Modal Overlay */}
       {isMobileModalOpen && (
-        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden">
+        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden px-2">
           <div className="flex flex-col h-full">
             {/* Modal Header */}
             <div className="flex items-center justify-between px-3 py-2.5 border mt-2 border-dashed">
@@ -134,7 +134,7 @@ export default function Home({
                     <a
                       href={`/${locale}${tech.link}`}
                       key={tech.name}
-                      className="flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground"
+                      className="flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground border-x"
                       onClick={closeMobileModal}
                     >
                       <span className="">{tech.icon}</span>
@@ -144,8 +144,8 @@ export default function Home({
                 })}
 
                 {/* Social Links */}
-                <div className="p-4 border-b border-dashed">
-                  <div className="flex flex-wrap gap-2">
+                <div className="p-6 border-b border-dashed border-x">
+                  <div className="flex flex-wrap gap-3">
                     <Button
                       variant="outline"
                       size="sm"
@@ -239,7 +239,7 @@ export default function Home({
         </div>
       )}
 
-      <div className="w-full h-auto md:h-screen overflow-y-auto md:overflow-hidden flex flex-col items-center justify-center">
+      <div className="w-full h-auto md:h-screen overflow-y-auto md:overflow-hidden flex flex-col items-center justify-center px-2">
         <div className="w-full max-w-7xl mx-auto border border-dashed flex flex-col my-2">
           <div className="w-full flex justify-between divide-x">
             <div className="relative hidden md:flex w-1/3 aspect-square bg-background items-center justify-center group/soma border-dashed">
@@ -315,11 +315,11 @@ export default function Home({
                   </button>
                 </div>
               </div>
-              <div id="hero" className="flex flex-col p-4">
+              <div id="hero" className="flex flex-col px-6 pt-6">
                 <h1 className="head-text-md">Soma Takata</h1>
                 <p className="text-muted-foreground max-w-3xl">{t("bio")}</p>
               </div>
-              <div id="cta" className="flex flex-wrap items-center gap-4 p-4">
+              <div id="cta" className="flex flex-wrap items-center gap-3 p-6">
                 <Button
                   variant="outline"
                   asChild
@@ -418,8 +418,9 @@ export default function Home({
                   {
                     "md:border-r":
                       index % 2 === 0 && index !== techConfig.length - 1,
+                    "lg:border-r-0": (index + 1) % 3 === 0,
                     "lg:border-r":
-                      index % 3 !== 2 && index !== techConfig.length - 1,
+                      (index + 1) % 3 !== 0 && index !== techConfig.length - 1,
                   },
                 )}
               >

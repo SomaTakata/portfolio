@@ -104,10 +104,10 @@ export default function HomeLayout({
     <>
       {/* Mobile Modal Overlay */}
       {isMobileModalOpen && (
-        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden">
+        <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden px-2">
           <div className="flex flex-col h-full">
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-3 py-2.5 border-y mt-2 border-dashed">
+            <div className="flex items-center justify-between px-3 py-2.5 border-y mt-2 border-dashed border-x">
               <Link
                 href="/"
                 className="flex items-center gap-2"
@@ -135,7 +135,7 @@ export default function HomeLayout({
                       <div
                         key={tech.name}
                         className={cn(
-                          "relative w-full p-6  transition-all duration-150 group/item border-dashed border-b",
+                          "relative w-full p-6  transition-all duration-150 group/item border-dashed border-b border-x",
                         )}
                       >
                         <div className="flex items-center gap-3 mb-2">
@@ -158,9 +158,10 @@ export default function HomeLayout({
                       <Link
                         href={tech.link}
                         key={tech.name}
+                        onClick={closeMobileModal}
                         className={cn(
                           cn(
-                            "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground",
+                            "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b border-x hover:text-primary hover:font-semibold text-muted-foreground md:border-x-0",
                           ),
                         )}
                       >
@@ -173,8 +174,8 @@ export default function HomeLayout({
                 })}
 
                 {/* Social Links */}
-                <div className="p-4 border-b border-dashed">
-                  <div className="flex flex-wrap gap-2">
+                <div className="p-6 border-b border-dashed border-x">
+                  <div className="flex flex-wrap gap-3">
                     <Button
                       variant="outline"
                       size="sm"
@@ -258,19 +259,16 @@ export default function HomeLayout({
         </div>
       )}
 
-      <div className="md:hidden sticky top-0 pt-2 bg-background z-10">
+      <div className="md:hidden sticky top-0 pt-2 bg-background z-10 px-2">
         <div
           id="nav"
-          className="w-full flex items-center justify-end border-y border-dashed divide-x"
+          className="w-full flex items-center justify-end border border-dashed"
         >
           <div
             id="brand"
             className="font-mono text-sm flex-1 flex items-center h-full px-3 border-dashed"
           >
-            <Link
-              href="/"
-              className="hover:underline flex items-center gap-2"
-            >
+            <Link href="/" className="hover:underline flex items-center gap-2">
               <Circle size={15} />
               Soma Takata
             </Link>
@@ -278,7 +276,7 @@ export default function HomeLayout({
           <ThemeAndLanguageTogglersContainer />
           <div
             id="brand"
-            className="font-mono text-sm flex items-center h-full px-3 border-dashed cursor-pointer hover:bg-muted/50 transition-colors"
+            className="font-mono text-sm flex items-center h-full p-3 border-dashed border-l cursor-pointer hover:bg-muted/50 transition-colors"
             onClick={toggleMobileModal}
           >
             <AlignJustify size={15} />
@@ -331,7 +329,7 @@ export default function HomeLayout({
                 <div
                   key={tech.name}
                   className={cn(
-                    "relative w-full p-6  transition-all duration-150 group/item border-dashed border-b",
+                    "relative w-full p-6  transition-all duration-150 group/item border-dashed border-b border-x",
                   )}
                 >
                   <div className="flex items-center gap-3 mb-2">
@@ -354,7 +352,7 @@ export default function HomeLayout({
         </div>
       </div>
 
-      <div className="w-full md:h-screen grid place-items-center">
+      <div className="w-full md:h-screen grid place-items-center px-2">
         <div className="w-full max-w-7xl mx-auto border border-t-0 md:border-t border-dashed flex flex-col mb-2 md:mt-2">
           <div className="w-full flex justify-between divide-x">
             <div className="hidden md:flex flex-col w-1/3 aspect-square bg-background items-center justify-start group/soma border-dashed">
@@ -362,10 +360,7 @@ export default function HomeLayout({
                 id="brand"
                 className="md:border-b w-full border-dashed flex items-center justify-start"
               >
-                <Link
-                  href="/"
-                  className="flex items-center gap-1 w-full p-3"
-                >
+                <Link href="/" className="flex items-center gap-1 w-full p-3">
                   <svg
                     className="w-8 h-8 aspect-square"
                     viewBox="0 0 48 48"
@@ -417,7 +412,7 @@ export default function HomeLayout({
                       key={tech.name}
                       className={cn(
                         cn(
-                          "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b hover:text-primary hover:font-semibold text-muted-foreground",
+                          "flex gap-2 items-center w-full p-6 transition-all duration-150 group/item border-dashed border-b border-x hover:text-primary hover:font-semibold text-muted-foreground md:border-x-0",
                         ),
                       )}
                     >
@@ -434,7 +429,7 @@ export default function HomeLayout({
               />
               <div
                 id="cta"
-                className="hidden md:flex flex-wrap items-center gap-4 p-4 border-none"
+                className="hidden md:flex flex-wrap items-center gap-3 p-6 border-none"
               >
                 <Button
                   variant="outline"
