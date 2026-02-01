@@ -11,8 +11,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useSession, signOut } from "@/lib/auth-client";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
 import { siteConfig } from "@/constants/site.config";
 import { toast } from "sonner";
 import { ExternalLinkIcon, LogOutIcon } from "lucide-react";
@@ -47,7 +47,6 @@ export function UserProfile({ className }: { className?: string }) {
             signingOut && "animate-pulse",
             className
           )}
-          asChild
         >
           <Avatar>
             <AvatarImage
@@ -63,23 +62,23 @@ export function UserProfile({ className }: { className?: string }) {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-[250px]">
         <div className="p-4 flex flex-col gap-4">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-4">
+            <Avatar>
+              <AvatarImage
+                src={session.user.image ?? ""}
+                alt={session.user.name ?? ""}
+                className="rounded-full"
+              />
+              <AvatarFallback className="rounded-full">
+                {session.user.name?.charAt(0)}
+              </AvatarFallback>
+            </Avatar>
             <div className="flex flex-col">
               <p className="font-medium leading-none">{session.user.name}</p>
               <p className="text-sm text-muted-foreground">
                 {session.user.email}
-                <a
-                  href={siteConfig.socials.x_global}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-between gap-2"
-                >
-                  <span>{t("socials.x_global")}</span>
-                  <ExternalLinkIcon className="size-4" />
-                </a>
-                {session.user.name?.charAt(0)}
-              </AvatarFallback>
-            </Avatar>
+              </p>
+            </div>
           </div>
         </div>
         <DropdownMenuSeparator />
@@ -89,28 +88,61 @@ export function UserProfile({ className }: { className?: string }) {
         <DropdownMenuSeparator />
         <DropdownMenuItem className="cursor-pointer" asChild>
           <a
-              href={siteConfig.socials.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-between gap-2"
-            <a
-              href="https://zenn.dev/soma_takata"
-              target="_blank"
-              className="w-full flex items-center justify-between gap-2"
-            >
-              <span>{t("socials.zenn")}</span>
-            </a>
+            href={siteConfig.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-between gap-2"
+          >
+            <span>{t("socials.github")}</span>
+            <ExternalLinkIcon className="size-4" />
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer" asChild>
+          <a
+            href={siteConfig.socials.x_global}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-between gap-2"
+          >
+            <span>{t("socials.x_global")}</span>
+            <ExternalLinkIcon className="size-4" />
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer" asChild>
+          <a
             href={siteConfig.socials.x_jp}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-between gap-2"
+          >
+            <span>{t("socials.x_jp")}</span>
+            <ExternalLinkIcon className="size-4" />
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer" asChild>
           <a
-            href="https://www.linkedin.com/in/soma-takata-819293303/"
+            href={siteConfig.socials.zenn}
             target="_blank"
+            rel="noopener noreferrer"
+            className="w-full flex items-center justify-between gap-2"
+          >
+            <span>{t("socials.zenn")}</span>
+            <ExternalLinkIcon className="size-4" />
+          </a>
+        </DropdownMenuItem>
+        <DropdownMenuItem className="cursor-pointer" asChild>
+          <a
+            href={siteConfig.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full flex items-center justify-between gap-2"
           >
             <span>{t("socials.linkedin")}</span>
+            <ExternalLinkIcon className="size-4" />
           </a>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem
           className="cursor-pointer w-full flex items-center justify-between gap-2"
           onClick={() =>
             signOut({

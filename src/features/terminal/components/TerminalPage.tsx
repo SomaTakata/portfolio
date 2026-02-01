@@ -99,7 +99,7 @@ export default function TerminalPage() {
       case "cat career.log":
         response = (
           <div>
-            {TERMINAL_TIMELINE_DATA.map((item, idx) => (
+            {TERMINAL_TIMELINE_DATA.map((item: any, idx: number) => (
               <div key={idx} className="mb-3 group">
                 <div className="flex items-center gap-2 text-muted-foreground">
                   <span>[{item.date}]</span>
@@ -150,7 +150,7 @@ export default function TerminalPage() {
               <div className="text-yellow-500 dark:text-yellow-400">
                 "skills": [
               </div>
-              {SKILLS_DATA.map((skill, idx) => (
+              {SKILLS_DATA.map((skill: any, idx: number) => (
                 <div key={idx} className="ml-8 space-y-1">
                   <div className="text-muted-foreground">{"{"}</div>
                   <div className="ml-4 space-y-1">
@@ -191,7 +191,7 @@ export default function TerminalPage() {
             <div className="text-cyan-500 dark:text-cyan-400 font-semibold mb-4">
               Latest News & Articles
             </div>
-            {NEWS_DATA.map((news, idx) => (
+            {NEWS_DATA.map((news: any, idx: number) => (
               <div
                 key={idx}
                 className="border-l-2 border-blue-400 pl-4 ml-2 mb-4"
@@ -228,7 +228,7 @@ export default function TerminalPage() {
             <div className="text-cyan-500 dark:text-cyan-400 font-semibold mb-4">
               Projects
             </div>
-            {PROJECTS_DATA.map((item, idx) => (
+            {PROJECTS_DATA.map((item: any, idx: number) => (
               <div
                 key={idx}
                 className="border-l-2 border-green-400 pl-4 ml-2 mb-4"
@@ -258,7 +258,7 @@ export default function TerminalPage() {
                     </div>
                   )}
                   <div className="flex flex-wrap gap-3 mt-2">
-                    {item.technologies.map((tech) => (
+                    {item.technologies.map((tech: string) => (
                       <span
                         key={tech}
                         className="px-2 py-1 text-xs bg-muted text-muted-foreground rounded"
@@ -373,7 +373,7 @@ export default function TerminalPage() {
 
   return (
     <div className="max-w-full overflow-x-auto p-4 space-y-1 text-green-500 dark:text-green-400 font-mono text-sm">
-      {commandHistory.map((entry, idx) => (
+      {commandHistory.map((entry: any, idx: number) => (
         <div key={idx} className="mb-2">
           <div className="flex items-center gap-2">
             <span className="text-blue-500 dark:text-blue-400">
