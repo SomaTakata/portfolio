@@ -171,6 +171,16 @@
     "items": [
       {
         "iconType": "globe",
+        "period": "2026.3 - 現在",
+        "title": "ZURE-CLOCK",
+        "description": "現在時刻を表示するシンプルなWebクロックです。通常表示に加えて、実時刻より10〜20分先行した時刻を表示する『ランダム進み時計』を1クリックでON/OFFできます。進み幅は10分ごとにランダム更新され、遅刻防止や行動の前倒しを自然に促します。",
+        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+        "link": "https://zure-clock.vercel.app/",
+        "github": "",
+        "status": "Live"
+      },
+      {
+        "iconType": "globe",
         "period": "2024.2 - 現在",
         "title": "ポートフォリオ",
         "description": "自分用に作成したポートフォリオサイトです。",

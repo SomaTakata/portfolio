@@ -171,6 +171,16 @@
     "items": [
       {
         "iconType": "globe",
+        "period": "2026.3 - Present",
+        "title": "ZURE-CLOCK",
+        "description": "A minimal web clock that shows the current time. In addition to normal display, it offers a one-click toggle for a random advanced-time mode that shows a time 10-20 minutes ahead of real time. The offset is refreshed randomly every 10 minutes to naturally encourage earlier actions and reduce lateness.",
+        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+        "link": "https://zure-clock.vercel.app/",
+        "github": "",
+        "status": "Live"
+      },
+      {
+        "iconType": "globe",
         "period": "2024.2 - Present",
         "title": "Portfolio",
         "description": "This is a portfolio website that I made for myself.",
