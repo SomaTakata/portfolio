@@ -323,7 +323,7 @@ export default function Home({
               </div>
               <div
                 id="hero"
-                className="flex flex-col p-6 border-b border-dashed"
+                className="flex flex-col px-6 pt-6 md:pb-0 pb-6 border-b md:border-0 border-dashed"
               >
                 <h1 className="head-text-md">Soma Takata</h1>
                 <p className="text-muted-foreground max-w-3xl">{t("bio")}</p>
