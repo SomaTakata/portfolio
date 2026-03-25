@@ -321,6 +321,13 @@ export default function Home({
                   </button>
                 </div>
               </div>
+              <div
+                id="hero"
+                className="flex flex-col p-6 border-b border-dashed"
+              >
+                <h1 className="head-text-md">Soma Takata</h1>
+                <p className="text-muted-foreground max-w-3xl">{t("bio")}</p>
+              </div>
               <div className="relative md:hidden w-full aspect-square bg-background items-center justify-center group/soma border-b border-dashed">
                 <Image
                   src="/flower.png"
@@ -332,10 +339,6 @@ export default function Home({
                 <div className="absolute top-0 right-0 size-4 border-t-2 border-r-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
                 <div className="absolute bottom-0 left-0 size-4 border-b-2 border-l-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
                 <div className="absolute bottom-0 right-0 size-4 border-b-2 border-r-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
-              </div>
-              <div id="hero" className="flex flex-col px-6 pt-6">
-                <h1 className="head-text-md">Soma Takata</h1>
-                <p className="text-muted-foreground max-w-3xl">{t("bio")}</p>
               </div>
               <div id="cta" className="flex flex-wrap items-center gap-3 p-6">
                 <Button
