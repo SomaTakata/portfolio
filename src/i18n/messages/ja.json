@@ -51,6 +51,24 @@
     "title": "ニュース",
     "items": [
       {
+        "iconType": "Users",
+        "date": "2025.12.12",
+        "title": "【記念すべき第１回】しばよこサマーハッカソン開催！",
+        "description": "芝浦工業大学発の共創サークル『しばよこ』で開催した第1回サマーハッカソンのレポート記事です。約50名・9チームで5日間開発し、発表・懇親会・協賛企業フィードバックまでを振り返っています。",
+        "category": "サークル活動 / ハッカソン",
+        "link": "https://note.com/shibayoko_sit/n/n3b90a58d6e89",
+        "type": "note投稿"
+      },
+      {
+        "iconType": "BookOpen",
+        "date": "2025.6.22",
+        "title": "エンジニアとデザイナーが共創する芝浦最大サークル『しばよこ』誕生秘話",
+        "description": "僕が立ち上げた『しばよこ』の背景や想い、Mission / Vision / Value、実際の活動内容をまとめたnote記事です。TechNovaから共創サークルへ発展した経緯を紹介しています。",
+        "category": "サークル紹介",
+        "link": "https://note.com/shibayoko_sit/n/n3e5a6d4d6e51",
+        "type": "note投稿"
+      },
+      {
         "iconType": "BookOpen",
         "date": "2024.9.17",
         "title": "LayerX サマーインターンシップ経験報告書を投稿しました！",

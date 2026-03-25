@@ -51,6 +51,24 @@
     "title": "News",
     "items": [
       {
+        "iconType": "Users",
+        "date": "2025.12.12",
+        "title": "[First Edition] ShibaYoko Summer Hackathon Recap",
+        "description": "A recap of the first internal summer hackathon hosted by ShibaYoko, our engineer-designer co-creation circle at Shibaura Institute of Technology. About 50 participants across 9 teams built and presented projects over 5 days.",
+        "category": "Circle Activity / Hackathon",
+        "link": "https://note.com/shibayoko_sit/n/n3b90a58d6e89",
+        "type": "Note Post"
+      },
+      {
+        "iconType": "BookOpen",
+        "date": "2025.6.22",
+        "title": "How ShibaYoko Was Born: The Story Behind Our Engineer-Designer Circle",
+        "description": "A note about how I founded ShibaYoko, including our Mission, Vision, and Value, plus the journey from TechNova to a larger co-creation community.",
+        "category": "Circle Introduction",
+        "link": "https://note.com/shibayoko_sit/n/n3e5a6d4d6e51",
+        "type": "Note Post"
+      },
+      {
         "iconType": "BookOpen",
         "date": "2024.9.17",
         "title": "Posted LayerX Summer Internship Experience Report!",
