@@ -16,7 +16,7 @@
     "skills": "Skills",
     "news": "News",
     "projects": "Projects",
-    "terminal": "Terminal"
+    "terminal": "Art Gallery"
   },
   "home": {
     "bio": "Hi I am SomaTakata, a software engineer in Japan. I am a full stack developer. I always use Next.js and Tailwind CSS.",
@@ -38,8 +38,8 @@
         "description": "Latest updates, announcements, and things I'm currently working on."
       },
       "terminal": {
-        "name": "Terminal",
-        "description": "An interactive terminal-style space to explore more about me."
+        "name": "Art Gallery",
+        "description": "These are drawings I made — feel free to take a look."
       },
       "activity": {
         "name": "Activity",
@@ -299,7 +299,7 @@
     ]
   },
   "terminal": {
-    "title": "Terminal",
+    "title": "Art Gallery",
     "timeline": [
       {
         "date": "2025.10 -",

@@ -21,7 +21,7 @@ import {
   Zap,
   Newspaper,
   Activity,
-  Terminal,
+  Images,
   User,
   CircleIcon,
   AlignJustify,
@@ -85,11 +85,11 @@ export default function Home({
         link: "/news",
       },
       {
-        icon: <Terminal className="size-4" />,
+        icon: <Images className="size-4" />,
         category: "5",
         name: t("items.terminal.name"),
         description: t("items.terminal.description"),
-        link: "/terminal",
+        link: "/gallery",
       },
       {
         icon: <Activity className="size-4" />,
@@ -516,12 +516,12 @@ const techConfig = (locale: string) => [
     link: "/news",
   },
   {
-    icon: <Terminal className="size-4" />,
+    icon: <Images className="size-4" />,
     category: "5",
-    name: "Terminal",
+    name: "Art Gallery",
     description:
-      "An interactive terminal-style space to explore more about me.",
-    link: "/terminal",
+      "A curated gallery-like space to explore works, news, and skills.",
+    link: "/gallery",
   },
   {
     icon: <Activity className="size-4" />,

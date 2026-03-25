@@ -5,7 +5,7 @@ import {
   Database,
   Newspaper,
   Activity,
-  Terminal,
+  Images,
 } from "lucide-react";
 
 export const getTechConfig = (t?: (key: string) => string) => [
@@ -46,13 +46,13 @@ export const getTechConfig = (t?: (key: string) => string) => [
     link: "/news",
   },
   {
-    icon: <Terminal className="size-4" />,
+    icon: <Images className="size-4" />,
     category: "5",
-    name: t ? t("items.terminal.name") : "Terminal",
+    name: t ? t("items.terminal.name") : "Art Gallery",
     description: t
       ? t("items.terminal.description")
-      : "An interactive terminal-style space to explore more about me.",
-    link: "/terminal",
+      : "A curated gallery-like space to explore works, news, and skills.",
+    link: "/gallery",
   },
   {
     icon: <Activity className="size-4" />,
