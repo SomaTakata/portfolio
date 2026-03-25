@@ -1,4 +1,4 @@
-import TerminalPage from "@/features/terminal/components/TerminalPage";
+import TerminalPage from "@/features/terminal/components/GalleryPage";
 
 export const dynamic = "force-dynamic";
 
