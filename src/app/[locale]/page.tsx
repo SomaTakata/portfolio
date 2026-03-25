@@ -2,6 +2,7 @@
 
 // import { useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import ThemeAndLanguageTogglersContainer from "@/components/theme/togglers-container";
 import { Button } from "@/components/ui/button";
 import { UserProfile } from "@/components/user-profile";
@@ -243,7 +244,12 @@ export default function Home({
         <div className="w-full max-w-7xl mx-auto border border-dashed flex flex-col my-2">
           <div className="w-full flex justify-between divide-x">
             <div className="relative hidden md:flex w-1/3 aspect-square bg-background items-center justify-center group/soma border-dashed">
-              <Circle />
+              <Image
+                src="/flower.png"
+                alt="flower"
+                fill
+                className="w-full h-full object-contain scale-75"
+              />
               <div className="absolute top-0 left-0 size-4 border-t-2 border-l-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
               <div className="absolute top-0 right-0 size-4 border-t-2 border-r-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
               <div className="absolute bottom-0 left-0 size-4 border-b-2 border-l-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
@@ -511,16 +517,3 @@ const techConfig = (locale: string) => [
     link: "/activity",
   },
 ];
-
-const Circle = () => {
-  return (
-    <svg
-      className="w-full h-full aspect-square"
-      viewBox="0 0 400 400"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <circle cx="200" cy="200" r="100" fill="CurrentColor" />
-    </svg>
-  );
-};
