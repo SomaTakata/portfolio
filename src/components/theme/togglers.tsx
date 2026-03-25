@@ -57,15 +57,17 @@ export default function ThemeAndLanguageTogglers() {
         const x = (index % cols) * cellSize;
         const y = Math.floor(index / cols) * cellSize;
 
-        context.fillStyle = `rgba(255, 96, 168, ${0.7 + Math.random() * 0.3})`;
+        context.fillStyle = "rgba(255, 96, 168, 1)";
         context.fillRect(x, y, cellSize, cellSize);
       }
 
       if (!didNavigate && cursor >= total) {
         didNavigate = true;
+        context.fillStyle = "rgba(255, 96, 168, 1)";
+        context.fillRect(0, 0, window.innerWidth, window.innerHeight);
         timeoutRef.current = window.setTimeout(() => {
           router.push("/alien");
-        }, 0);
+        }, 80);
       }
 
       if (cursor < total) {
