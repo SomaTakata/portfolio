@@ -1,0 +1,565 @@
+.flip-clock-scene {
+  --bg-body: #27272a;
+  --housing-body: #18181b;
+  --housing-face: #09090b;
+  --card-bg: #222224;
+  --card-bg-light: #2a2a2c;
+  --text-color: #f0f0f0;
+
+  --card-width: 140px;
+  --card-height: 200px;
+  --font-size: 160px;
+  --border-radius: 8px;
+  --spacing-group: 40px;
+  --spacing-digit: 8px;
+
+  --flip-speed: 0.6s;
+  --bounce-speed: 0.2s;
+  --shadow-rest: 0.05;
+  --shadow-peak: 0.32;
+  --panel-flat-tint: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02),
+    rgba(0, 0, 0, 0.03)
+  );
+
+  position: fixed;
+  inset: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #181818;
+  background-image: radial-gradient(circle at 50% 0%, #282828 0%, #080808 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-anton), "Anton", sans-serif;
+  overflow: hidden;
+  perspective: 2000px;
+}
+
+@media (max-width: 1024px) {
+  .flip-clock-scene {
+    --card-width: 100px;
+    --card-height: 150px;
+    --font-size: 110px;
+    --spacing-group: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .flip-clock-scene {
+    --card-width: 64px;
+    --card-height: 96px;
+    --font-size: 72px;
+    --spacing-group: 14px;
+    --spacing-digit: 5px;
+    perspective: 1200px;
+  }
+}
+
+.flip-clock-scene .clock-housing {
+  background: #222224;
+  padding: 40px 50px;
+  border-radius: 24px;
+  box-shadow:
+    0 50px 100px -20px rgba(0, 0, 0, 0.7),
+    0 30px 60px -30px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-group);
+  transform-style: preserve-3d;
+  transform: rotateX(5deg);
+  position: relative;
+}
+
+.flip-clock-scene .clock-housing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  pointer-events: none;
+  border-radius: 24px;
+  mix-blend-mode: overlay;
+}
+
+@media (max-width: 600px) {
+  .flip-clock-scene .clock-housing {
+    padding: 22px 22px;
+    border-radius: 18px;
+  }
+}
+
+.flip-clock-scene .digit-group {
+  display: flex;
+  gap: var(--spacing-digit);
+  position: relative;
+  background: #000;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.flip-clock-scene .flip-unit {
+  position: relative;
+  width: var(--card-width);
+  height: var(--card-height);
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.flip-clock-scene .flip-unit::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  width: 4px;
+  height: 12px;
+  background: linear-gradient(to right, #252525, #3a3a3a, #282828);
+  transform: translateY(-50%);
+  border-radius: 2px;
+  box-shadow:
+    1px 0 2px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.flip-clock-scene .flip-unit::after {
+  content: "";
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  width: 4px;
+  height: 12px;
+  background: linear-gradient(to right, #282828, #3a3a3a, #252525);
+  transform: translateY(-50%);
+  border-radius: 2px;
+  box-shadow:
+    -1px 0 2px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.12),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
+.flip-clock-scene .card-half {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background-color: var(--card-bg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-clock-scene .card-top {
+  top: 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  transform-origin: bottom;
+  background-color: var(--card-bg-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+.flip-clock-scene .card-bottom {
+  bottom: 0;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  transform-origin: top;
+  background-color: var(--card-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.flip-clock-scene .card-num {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  color: var(--text-color);
+  font-size: var(--font-size);
+  font-weight: 700;
+  text-align: center;
+  line-height: var(--card-height);
+  letter-spacing: -4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.flip-clock-scene .card-top .card-num {
+  top: 0;
+}
+
+.flip-clock-scene .card-bottom .card-num {
+  bottom: 0;
+}
+
+.flip-clock-scene .leaf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  z-index: 10;
+  will-change: transform;
+}
+
+.flip-clock-scene .card-half,
+.flip-clock-scene .leaf-front,
+.flip-clock-scene .leaf-back {
+  background-image: var(--panel-flat-tint);
+  background-size: 100% 100%;
+  box-shadow: none;
+}
+
+.flip-clock-scene .leaf-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  background-color: var(--card-bg-light);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  transform: translateZ(0.01px);
+}
+
+.flip-clock-scene .leaf-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  background-color: var(--card-bg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  transform: rotateX(180deg) translateZ(0.01px);
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.flip-clock-scene .leaf-front::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65));
+  opacity: var(--shadow-rest);
+}
+
+.flip-clock-scene .leaf-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65));
+  opacity: var(--shadow-rest);
+}
+
+.flip-clock-scene .static-bottom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.08));
+  opacity: 0.08;
+}
+
+.flip-clock-scene .static-top::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: black;
+  opacity: 0;
+}
+
+.flip-clock-scene .flipping {
+  animation: flipClockDown var(--flip-speed) ease-in-out forwards;
+}
+
+@keyframes flipClockDown {
+  0% {
+    transform: rotateX(0deg);
+  }
+  99% {
+    transform: rotateX(-179.85deg);
+  }
+  100% {
+    transform: rotateX(-179.85deg);
+  }
+}
+
+.flip-clock-scene .flipping .leaf-front::after {
+  animation: flipClockFrontLeafShadow var(--flip-speed) ease-in-out both;
+}
+
+.flip-clock-scene .flipping .leaf-back::after {
+  animation: flipClockBackLeafShadow var(--flip-speed) ease-in-out both;
+}
+
+.flip-clock-scene .flip-active .static-bottom::after {
+  animation: flipClockStaticBottomShadow var(--flip-speed)
+    cubic-bezier(0.32, 0, 0.18, 1) both;
+}
+
+@keyframes flipClockFrontLeafShadow {
+  0% {
+    opacity: var(--shadow-rest);
+  }
+  35% {
+    opacity: 0.56;
+  }
+  70% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: var(--shadow-rest);
+  }
+}
+
+@keyframes flipClockBackLeafShadow {
+  0% {
+    opacity: 0.52;
+  }
+  45% {
+    opacity: 0.36;
+  }
+  78% {
+    opacity: 0.12;
+  }
+  100% {
+    opacity: var(--shadow-rest);
+  }
+}
+
+@keyframes flipClockStaticBottomShadow {
+  0% {
+    opacity: 0.08;
+  }
+  30% {
+    opacity: var(--shadow-peak);
+  }
+  72% {
+    opacity: 0.14;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+
+/* Separator dots */
+.flip-clock-scene .clock-separator {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 0;
+  height: 120px;
+  justify-content: center;
+  opacity: 0.8;
+}
+
+.flip-clock-scene .clock-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background-color: #1f1f1f;
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.8),
+    0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Housing overlays */
+.flip-clock-scene .clock-overlay-sheen {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 40;
+  mix-blend-mode: overlay;
+}
+
+.flip-clock-scene .clock-overlay-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* ───────────────────────── Control bar ───────────────────────── */
+.clock-controls {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px 28px;
+  padding: 16px 20px;
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #e7e7ea;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 12, 0.72),
+    rgba(10, 10, 12, 0)
+  );
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.clock-control-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clock-control-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Select */
+.clock-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.clock-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f0f0f0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9px;
+  padding: 8px 30px 8px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.clock-select:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.clock-select:focus-visible {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.clock-select option {
+  background: #1a1a1c;
+  color: #f0f0f0;
+}
+
+.clock-offset {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.5);
+  min-width: 56px;
+}
+
+/* Color swatches */
+.clock-swatches {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.clock-swatch {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.clock-swatch:hover {
+  transform: scale(1.12);
+}
+
+.clock-swatch.is-active {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.clock-swatch-custom {
+  overflow: hidden;
+  background:
+    conic-gradient(
+      from 0deg,
+      #ff0000,
+      #ffae00,
+      #fbff00,
+      #00ff37,
+      #00fffb,
+      #0040ff,
+      #c800ff,
+      #ff0000
+    );
+}
+
+.clock-swatch-custom input[type="color"] {
+  position: absolute;
+  inset: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  opacity: 0;
+  cursor: pointer;
+  padding: 0;
+  border: none;
+}
+
+@media (max-width: 600px) {
+  .clock-controls {
+    gap: 10px 18px;
+    padding: 12px 14px;
+  }
+  .clock-control-label {
+    display: none;
+  }
+  .clock-offset {
+    display: none;
+  }
+}
