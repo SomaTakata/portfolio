@@ -66,7 +66,7 @@ export default function ThemeAndLanguageTogglers() {
         context.fillStyle = "rgba(255, 96, 168, 1)";
         context.fillRect(0, 0, window.innerWidth, window.innerHeight);
         timeoutRef.current = window.setTimeout(() => {
-          router.push("/alien");
+          router.push("/clock");
         }, 80);
       }
 
@@ -88,7 +88,7 @@ export default function ThemeAndLanguageTogglers() {
     };
   }, [isWarping, router]);
 
-  const handleAlienClick = () => {
+  const handleClockClick = () => {
     if (isWarping) return;
     setIsWarping(true);
   };
@@ -97,13 +97,13 @@ export default function ThemeAndLanguageTogglers() {
     <div className="flex items-center">
       <button
         type="button"
-        onClick={handleAlienClick}
-        title="Alien"
+        onClick={handleClockClick}
+        title="Clock"
         className="size-10 md:size-14 aspect-square p-0 border-l border-dashed relative hover:bg-muted/50 transition-colors"
       >
         <Image
-          src="/alien.png"
-          alt="alien"
+          src="/clock.png"
+          alt="clock"
           fill
           className="object-contain scale-75"
         />
