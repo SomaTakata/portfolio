@@ -6,96 +6,43 @@ import { useRouter } from "@/i18n/navigation";
 import ThemeToggler from "./toggler";
 import LanguageSwitcher from "./language-switcher";
 
+const WARP_DURATION = 900;
+
 export default function ThemeAndLanguageTogglers() {
   const router = useRouter();
-  const [isWarping, setIsWarping] = useState(false);
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const frameRef = useRef<number | null>(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
   const timeoutRef = useRef<number | null>(null);
+  const [isWarping, setIsWarping] = useState(false);
+  const [origin, setOrigin] = useState({ x: 50, y: 50 });
 
   useEffect(() => {
     if (!isWarping) return;
-
-    const canvas = canvasRef.current;
-    const context = canvas?.getContext("2d", { alpha: true });
-    if (!canvas || !context) return;
-
-    const cellSize = 8;
-
-    const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = Math.floor(window.innerWidth * dpr);
-      canvas.height = Math.floor(window.innerHeight * dpr);
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${window.innerHeight}px`;
-      context.setTransform(dpr, 0, 0, dpr, 0, 0);
-      context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    };
-
-    resize();
-    window.addEventListener("resize", resize);
-
-    const cols = Math.ceil(window.innerWidth / cellSize);
-    const rows = Math.ceil(window.innerHeight / cellSize);
-    const total = cols * rows;
-    const order = Array.from({ length: total }, (_, i) => i);
-
-    for (let i = order.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [order[i], order[j]] = [order[j], order[i]];
-    }
-
-    let cursor = 0;
-    let didNavigate = false;
-
-    const paint = () => {
-      const progress = cursor / total;
-      const burst = Math.min(700, 40 + Math.floor(progress * 420));
-
-      for (let i = 0; i < burst && cursor < total; i++) {
-        const index = order[cursor++];
-        const x = (index % cols) * cellSize;
-        const y = Math.floor(index / cols) * cellSize;
-
-        context.fillStyle = "rgba(255, 96, 168, 1)";
-        context.fillRect(x, y, cellSize, cellSize);
-      }
-
-      if (!didNavigate && cursor >= total) {
-        didNavigate = true;
-        context.fillStyle = "rgba(255, 96, 168, 1)";
-        context.fillRect(0, 0, window.innerWidth, window.innerHeight);
-        timeoutRef.current = window.setTimeout(() => {
-          router.push("/clock");
-        }, 80);
-      }
-
-      if (cursor < total) {
-        frameRef.current = window.requestAnimationFrame(paint);
-      }
-    };
-
-    frameRef.current = window.requestAnimationFrame(paint);
+    timeoutRef.current = window.setTimeout(() => {
+      router.push("/clock");
+    }, WARP_DURATION - 60);
 
     return () => {
-      window.removeEventListener("resize", resize);
-      if (frameRef.current) {
-        window.cancelAnimationFrame(frameRef.current);
-      }
-      if (timeoutRef.current) {
-        window.clearTimeout(timeoutRef.current);
-      }
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     };
   }, [isWarping, router]);
 
   const handleClockClick = () => {
     if (isWarping) return;
+
+    const rect = buttonRef.current?.getBoundingClientRect();
+    if (rect) {
+      setOrigin({
+        x: ((rect.left + rect.width / 2) / window.innerWidth) * 100,
+        y: ((rect.top + rect.height / 2) / window.innerHeight) * 100,
+      });
+    }
     setIsWarping(true);
   };
 
   return (
     <div className="flex items-center">
       <button
+        ref={buttonRef}
         type="button"
         onClick={handleClockClick}
         title="Clock"
@@ -112,10 +59,128 @@ export default function ThemeAndLanguageTogglers() {
       <ThemeToggler />
 
       {isWarping && (
-        <div className="fixed inset-0 z-[9999] pointer-events-none">
-          <canvas ref={canvasRef} className="w-full h-full" />
+        <div
+          className="warp-overlay"
+          style={
+            {
+              "--warp-x": `${origin.x}%`,
+              "--warp-y": `${origin.y}%`,
+              "--warp-duration": `${WARP_DURATION}ms`,
+            } as React.CSSProperties
+          }
+        >
+          {/* Solid backdrop that fades in so the screen ends fully dark */}
+          <div className="warp-backdrop" />
+          {/* Ring with a transparent center that collapses into the icon */}
+          <div className="warp-iris" />
+          {/* Swirl being pulled into the center */}
+          <div className="warp-swirl" />
         </div>
       )}
+
+      <style jsx>{`
+        .warp-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          pointer-events: none;
+          overflow: hidden;
+        }
+
+        /* Fades in late so the page stays visible during the suck-in,
+           then ends fully dark right before navigation. */
+        .warp-backdrop {
+          position: absolute;
+          inset: 0;
+          background: rgb(8, 8, 10);
+          opacity: 0;
+          animation: warp-backdrop-in var(--warp-duration) ease-in forwards;
+        }
+
+        @keyframes warp-backdrop-in {
+          0%,
+          55% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        /* A huge ring with a transparent center, anchored at the icon.
+           Scaling it down collapses the transparent hole into the clock,
+           so the whole page appears to be sucked inward. */
+        .warp-iris {
+          position: absolute;
+          left: var(--warp-x);
+          top: var(--warp-y);
+          width: 300vmax;
+          height: 300vmax;
+          transform: translate(-50%, -50%) scale(1);
+          border-radius: 50%;
+          background: radial-gradient(
+            circle,
+            transparent 0%,
+            transparent 33%,
+            rgba(10, 10, 12, 0.9) 40%,
+            rgba(8, 8, 10, 1) 55%
+          );
+          animation: warp-iris-close var(--warp-duration)
+            cubic-bezier(0.66, 0, 0.84, 0.1) forwards;
+        }
+
+        /* A thin pink ring + streaks that spiral inward. */
+        .warp-swirl {
+          position: absolute;
+          left: var(--warp-x);
+          top: var(--warp-y);
+          width: 220vmax;
+          height: 220vmax;
+          transform: translate(-50%, -50%) scale(1) rotate(0deg);
+          background: conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            rgba(255, 96, 168, 0) 200deg,
+            rgba(255, 96, 168, 0.18) 300deg,
+            rgba(255, 96, 168, 0.55) 350deg,
+            rgba(255, 255, 255, 0.7) 360deg
+          );
+          mix-blend-mode: screen;
+          opacity: 0;
+          animation: warp-swirl-in var(--warp-duration)
+            cubic-bezier(0.6, 0, 0.85, 0.2) forwards;
+        }
+
+        @keyframes warp-iris-close {
+          0% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+          100% {
+            transform: translate(-50%, -50%) scale(0);
+          }
+        }
+
+        @keyframes warp-swirl-in {
+          0% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(1) rotate(0deg);
+          }
+          25% {
+            opacity: 0.9;
+          }
+          100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.02) rotate(540deg);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .warp-iris,
+          .warp-swirl {
+            animation-duration: 1ms;
+          }
+        }
+      `}</style>
     </div>
   );
 }
