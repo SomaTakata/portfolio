@@ -48,6 +48,42 @@
   font-variant-numeric: tabular-nums;
 }
 
+/* View-mode toggle (center of header) */
+.lumina-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.lumina-toggle-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lumina-muted);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.lumina-toggle-btn:hover {
+  color: var(--lumina-text);
+}
+
+.lumina-toggle-btn.is-on {
+  color: var(--lumina-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.lumina-toggle-sep {
+  color: var(--lumina-border);
+}
+
 /* 3D carousel */
 .lumina-stage {
   position: absolute;
@@ -136,8 +172,49 @@
   z-index: 100;
 }
 
+/* Grid (aligned) view */
+.lumina-grid {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  padding: 72px 24px 48px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  align-content: start;
+}
+
+.lumina-grid-item {
+  margin: 0;
+}
+
+.lumina-grid-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  background-color: #e0e0e0;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.lumina-grid-label {
+  margin-top: 8px;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--lumina-muted);
+}
+
 @media (max-width: 768px) {
   .lumina-caption {
     bottom: 40px;
+  }
+
+  .lumina-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+    padding: 64px 16px 40px;
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./gallery.css";
 
 export type GalleryImage = {
@@ -8,14 +8,17 @@ export type GalleryImage = {
   label: string;
 };
 
+type Mode = "scroll" | "grid";
+
 export default function LuminaGallery({ images }: { images: GalleryImage[] }) {
   const stageRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [mode, setMode] = useState<Mode>("scroll");
 
   useEffect(() => {
     const stage = stageRef.current;
-    if (!stage || images.length === 0) return;
+    if (mode !== "scroll" || !stage || images.length === 0) return;
 
     const getWidth = () => stage.clientWidth || window.innerWidth;
 
@@ -133,32 +136,67 @@ export default function LuminaGallery({ images }: { images: GalleryImage[] }) {
       window.removeEventListener("mouseup", onMouseUp);
       window.removeEventListener("resize", onResize);
     };
-  }, [images]);
+  }, [images, mode]);
 
   return (
     <div className="lumina">
       <header className="lumina-sys lumina-header">
         <div>GALLERY</div>
+
+        <div className="lumina-toggle" role="group" aria-label="View mode">
+          <button
+            type="button"
+            className={"lumina-toggle-btn" + (mode === "scroll" ? " is-on" : "")}
+            aria-pressed={mode === "scroll"}
+            onClick={() => setMode("scroll")}
+          >
+            SCROLL
+          </button>
+          <span className="lumina-toggle-sep">/</span>
+          <button
+            type="button"
+            className={"lumina-toggle-btn" + (mode === "grid" ? " is-on" : "")}
+            aria-pressed={mode === "grid"}
+            onClick={() => setMode("grid")}
+          >
+            GRID
+          </button>
+        </div>
+
         <div>SOMA TAKATA</div>
       </header>
 
-      <div className="lumina-stage" ref={stageRef}>
-        {images.map((img, index) => (
-          <div
-            key={img.src}
-            className="lumina-item"
-            ref={(el) => {
-              itemRefs.current[index] = el;
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img.src} alt={img.label} draggable={false} />
-            <div className="lumina-label">{img.label}</div>
+      {mode === "scroll" ? (
+        <>
+          <div className="lumina-stage" ref={stageRef}>
+            {images.map((img, index) => (
+              <div
+                key={img.src}
+                className="lumina-item"
+                ref={(el) => {
+                  itemRefs.current[index] = el;
+                }}
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={img.src} alt={img.label} draggable={false} />
+                <div className="lumina-label">{img.label}</div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="lumina-progress" ref={progressRef} />
+          <div className="lumina-progress" ref={progressRef} />
+        </>
+      ) : (
+        <div className="lumina-grid">
+          {images.map((img) => (
+            <figure key={img.src} className="lumina-grid-item">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={img.src} alt={img.label} draggable={false} />
+              <figcaption className="lumina-grid-label">{img.label}</figcaption>
+            </figure>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
