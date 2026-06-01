@@ -565,6 +565,8 @@
 }
 
 /* ───────────────── Embedded variant (in the hero) ───────────────── */
+/* Sizes scale with the viewport so the six digits always fit the column
+   on mobile, capped at fixed px once there is room on larger screens. */
 .flip-clock-scene.is-embedded {
   position: relative;
   inset: auto;
@@ -573,51 +575,28 @@
   background: transparent;
   padding: 8px 0 0;
   perspective: 1400px;
-  /* Mobile: keep the seconds readable. */
-  --card-width: 72px;
-  --card-height: 104px;
-  --font-size: 80px;
-  --spacing-group: 16px;
-  --spacing-digit: 6px;
+  --card-width: clamp(34px, 9.5vw, 82px);
+  --card-height: clamp(50px, 14vw, 118px);
+  --font-size: clamp(40px, 11vw, 92px);
+  --spacing-group: clamp(6px, 1.6vw, 22px);
+  --spacing-digit: clamp(3px, 0.7vw, 8px);
 }
 
-/* Very small phones: shrink the housing padding, keep digits large. */
-@media (max-width: 380px) {
-  .flip-clock-scene.is-embedded {
-    --card-width: 60px;
-    --card-height: 88px;
-    --font-size: 66px;
-    --spacing-group: 10px;
-    --spacing-digit: 5px;
-  }
-}
-
-@media (min-width: 768px) {
-  .flip-clock-scene.is-embedded {
-    --card-width: 82px;
-    --card-height: 118px;
-    --font-size: 92px;
-    --spacing-group: 22px;
-  }
+/* Tighter digit-group padding when embedded so six digits fit the column. */
+.flip-clock-scene.is-embedded .digit-group {
+  padding: clamp(4px, 1vw, 8px);
 }
 
 /* Embedded housing should not overflow the narrow hero column, and its
    shadow is toned down to match the flat, light hero UI. */
 .flip-clock-scene.is-embedded .clock-housing {
-  padding: 20px 18px;
+  padding: clamp(12px, 3.2vw, 20px) clamp(10px, 3vw, 18px);
   max-width: 100%;
   transform: none;
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.08),
     0 8px 24px -12px rgba(0, 0, 0, 0.25),
     inset 0 0 0 1px rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 380px) {
-  .flip-clock-scene.is-embedded .clock-housing {
-    padding: 14px 10px;
-    gap: var(--spacing-group);
-  }
 }
 
 .clock-controls.is-embedded {

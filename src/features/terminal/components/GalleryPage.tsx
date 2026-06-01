@@ -26,7 +26,7 @@ export default async function TerminalPage() {
               src={item.src}
               alt={item.alt}
               fill
-              className="object-contain p-3 md:p-4 brightness-75 transition-transform duration-500 hover:scale-[1.02]"
+              className="object-contain p-3 md:p-4 transition-transform duration-500 hover:scale-[1.02]"
               priority={idx < 2}
             />
           </article>
