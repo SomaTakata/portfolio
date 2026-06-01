@@ -104,7 +104,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(260px, 30vw, 560px);
+  width: clamp(260px, 26vw, 480px);
   transform-origin: center center;
   will-change: transform;
 }
