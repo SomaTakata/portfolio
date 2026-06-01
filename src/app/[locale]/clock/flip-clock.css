@@ -587,6 +587,20 @@
   padding: clamp(4px, 1vw, 8px);
 }
 
+/* The separator is a fixed 120px tall in the full-screen clock, which is
+   far taller than the scaled-down embedded cards and forces extra height
+   inside the housing. Match it to the embedded card height instead. */
+.flip-clock-scene.is-embedded .clock-separator {
+  height: auto;
+  padding: 0;
+  gap: clamp(8px, 3vw, 22px);
+}
+
+.flip-clock-scene.is-embedded .clock-dot {
+  width: clamp(5px, 1.4vw, 12px);
+  height: clamp(5px, 1.4vw, 12px);
+}
+
 /* Embedded housing should not overflow the narrow hero column, and its
    shadow is toned down to match the flat, light hero UI. */
 .flip-clock-scene.is-embedded .clock-housing {
