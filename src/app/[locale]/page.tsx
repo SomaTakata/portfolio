@@ -418,7 +418,7 @@ function HeroOrClock({ bio }: { bio: string }) {
           back={
             <div
               id="hero"
-              className="flex flex-col px-6 py-6 border-b border-dashed h-full"
+              className="flex flex-col items-center justify-center px-6 h-[156px] border-b border-dashed"
             >
               <ClockApp embedded showControls={false} />
             </div>
