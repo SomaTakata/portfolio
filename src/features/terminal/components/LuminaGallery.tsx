@@ -10,7 +10,6 @@ export type GalleryImage = {
 
 export default function LuminaGallery({ images }: { images: GalleryImage[] }) {
   const stageRef = useRef<HTMLDivElement>(null);
-  const coordRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -92,7 +91,6 @@ export default function LuminaGallery({ images }: { images: GalleryImage[] }) {
       scrollCurrent += (scrollTarget - scrollCurrent) * ease;
 
       const ratio = scrollCurrent / maxScroll;
-      if (coordRef.current) coordRef.current.innerText = ratio.toFixed(3);
       if (progressRef.current)
         progressRef.current.style.width = `${ratio * 100}%`;
 
@@ -140,10 +138,7 @@ export default function LuminaGallery({ images }: { images: GalleryImage[] }) {
   return (
     <div className="lumina">
       <header className="lumina-sys lumina-header">
-        <div>GALLERY — 01</div>
-        <div className="lumina-coord" ref={coordRef}>
-          0.000
-        </div>
+        <div>GALLERY</div>
         <div>SOMA TAKATA</div>
       </header>
 
@@ -161,12 +156,6 @@ export default function LuminaGallery({ images }: { images: GalleryImage[] }) {
             <div className="lumina-label">{img.label}</div>
           </div>
         ))}
-      </div>
-
-      <div className="lumina-caption">
-        <strong>Gallery</strong> — a quiet space for the images I&apos;ve made.
-        <br />
-        Drag, scroll, or swipe to explore.
       </div>
 
       <div className="lumina-progress" ref={progressRef} />

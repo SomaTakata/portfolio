@@ -1,5 +1,5 @@
 .lumina {
-  --lumina-bg: #f3f4f5;
+  --lumina-bg: #ffffff;
   --lumina-text: #111111;
   --lumina-muted: #888888;
   --lumina-border: #d0d0d0;
@@ -10,7 +10,11 @@
   min-height: 70vh;
   background-color: var(--lumina-bg);
   color: var(--lumina-text);
-  font-family: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont,
+  font-family:
+    var(--font-sans),
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
     sans-serif;
   overflow: hidden;
   user-select: none;
@@ -64,7 +68,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: clamp(160px, 15vw, 300px);
+  width: clamp(260px, 30vw, 560px);
   transform-origin: center center;
   will-change: transform;
 }
