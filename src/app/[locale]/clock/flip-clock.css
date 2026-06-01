@@ -590,7 +590,7 @@
 /* Embedded housing should not overflow the narrow hero column, and its
    shadow is toned down to match the flat, light hero UI. */
 .flip-clock-scene.is-embedded .clock-housing {
-  padding: clamp(12px, 3.2vw, 20px) clamp(10px, 3vw, 18px);
+  padding: clamp(7px, 1.8vw, 14px) clamp(10px, 3vw, 18px);
   max-width: 100%;
   transform: none;
   box-shadow:
