@@ -571,7 +571,7 @@
   min-height: 0;
   width: 100%;
   background: transparent;
-  padding: 8px 0 24px;
+  padding: 8px 0 0;
   perspective: 1400px;
   /* Mobile: keep the seconds readable. */
   --card-width: 72px;
