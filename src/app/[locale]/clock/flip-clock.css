@@ -576,8 +576,8 @@
   padding: 8px 0 0;
   perspective: 1400px;
   --card-width: clamp(34px, 9.5vw, 82px);
-  --card-height: clamp(50px, 14vw, 118px);
-  --font-size: clamp(40px, 11vw, 92px);
+  --card-height: clamp(46px, 12.5vw, 106px);
+  --font-size: clamp(46px, 13vw, 108px);
   --spacing-group: clamp(6px, 1.6vw, 22px);
   --spacing-digit: clamp(3px, 0.7vw, 8px);
 }
