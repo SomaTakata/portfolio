@@ -30,7 +30,11 @@ const COLORS: { label: string; value: string }[] = [
   { label: "Red", value: "#ef4444" },
 ];
 
-export default function ClockApp() {
+export default function ClockApp({
+  embedded = false,
+}: {
+  embedded?: boolean;
+}) {
   const [timeZone, setTimeZone] = useState(CITIES[0].timeZone);
   const [color, setColor] = useState(COLORS[0].value);
 
@@ -38,7 +42,7 @@ export default function ClockApp() {
 
   return (
     <>
-      <div className="clock-controls">
+      <div className={"clock-controls" + (embedded ? " is-embedded" : "")}>
         <div className="clock-control-group">
           <span className="clock-control-label">City</span>
           <div className="clock-select-wrap">
@@ -86,7 +90,7 @@ export default function ClockApp() {
         </div>
       </div>
 
-      <FlipClock timeZone={timeZone} color={color} />
+      <FlipClock timeZone={timeZone} color={color} embedded={embedded} />
     </>
   );
 }

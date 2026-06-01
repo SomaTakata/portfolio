@@ -107,9 +107,11 @@ function getTimeParts(timeZone: string): { h: string; m: string; s: string } {
 export default function FlipClock({
   timeZone,
   color,
+  embedded = false,
 }: {
   timeZone: string;
   color: string;
+  embedded?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -162,7 +164,7 @@ export default function FlipClock({
 
   return (
     <div
-      className="flip-clock-scene"
+      className={"flip-clock-scene" + (embedded ? " is-embedded" : "")}
       ref={containerRef}
       style={{ "--text-color": color } as React.CSSProperties}
     >

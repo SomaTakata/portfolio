@@ -5,11 +5,13 @@ import Image from "next/image";
 import { useRouter } from "@/i18n/navigation";
 import ThemeToggler from "./toggler";
 import LanguageSwitcher from "./language-switcher";
+import { useClockMode } from "./clock-mode";
 
 const WARP_DURATION = 900;
 
 export default function ThemeAndLanguageTogglers() {
   const router = useRouter();
+  const clockMode = useClockMode();
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const timeoutRef = useRef<number | null>(null);
   const [isWarping, setIsWarping] = useState(false);
@@ -27,8 +29,14 @@ export default function ThemeAndLanguageTogglers() {
   }, [isWarping, router]);
 
   const handleClockClick = () => {
-    if (isWarping) return;
+    // On the home page a provider is present: swap the hero in place.
+    if (clockMode) {
+      clockMode.toggle();
+      return;
+    }
 
+    // Elsewhere: fall back to the warp transition into /clock.
+    if (isWarping) return;
     const rect = buttonRef.current?.getBoundingClientRect();
     if (rect) {
       setOrigin({
@@ -46,6 +54,7 @@ export default function ThemeAndLanguageTogglers() {
         type="button"
         onClick={handleClockClick}
         title="Clock"
+        aria-pressed={clockMode?.isClockMode ?? undefined}
         className="size-10 md:size-14 aspect-square p-0 border-l border-dashed relative hover:bg-muted/50 transition-colors"
       >
         <Image

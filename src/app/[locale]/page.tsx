@@ -4,6 +4,12 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import ThemeAndLanguageTogglersContainer from "@/components/theme/togglers-container";
+import {
+  ClockModeProvider,
+  useClockMode,
+} from "@/components/theme/clock-mode";
+import ClockApp from "@/app/[locale]/clock/ClockApp";
+import "@/app/[locale]/clock/flip-clock.css";
 import { Button } from "@/components/ui/button";
 import { UserProfile } from "@/components/user-profile";
 import { siteConfig } from "@/constants/site.config";
@@ -103,7 +109,7 @@ export default function Home({
   );
 
   return (
-    <>
+    <ClockModeProvider>
       {/* Mobile Modal Overlay */}
       {isMobileModalOpen && (
         <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden px-2">
@@ -321,102 +327,7 @@ export default function Home({
                   </button>
                 </div>
               </div>
-              <div
-                id="hero"
-                className="flex flex-col px-6 pt-6 md:pb-0 pb-6 border-b md:border-0 border-dashed"
-              >
-                <h1 className="head-text-md">Soma Takata</h1>
-                <p className="text-muted-foreground max-w-3xl">{t("bio")}</p>
-              </div>
-              <div className="relative md:hidden w-full aspect-square bg-background items-center justify-center group/soma border-b border-dashed">
-                <Image
-                  src="/flower.png"
-                  alt="flower"
-                  fill
-                  className="w-full h-full object-contain scale-75"
-                />
-                <div className="absolute top-0 left-0 size-4 border-t-2 border-l-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
-                <div className="absolute top-0 right-0 size-4 border-t-2 border-r-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
-                <div className="absolute bottom-0 left-0 size-4 border-b-2 border-l-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
-                <div className="absolute bottom-0 right-0 size-4 border-b-2 border-r-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
-              </div>
-              <div id="cta" className="flex flex-wrap items-center gap-3 p-6">
-                <Button
-                  variant="outline"
-                  asChild
-                  className="relative border-dashed"
-                >
-                  <a
-                    href={siteConfig.socials.github}
-                    target="_blank"
-                    className="gap-2 group"
-                  >
-                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    <Github className="size-4" />
-                    <span>GitHub</span>
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="relative border-dashed"
-                >
-                  <a
-                    href={siteConfig.socials.x_jp}
-                    target="_blank"
-                    className="gap-2 group"
-                  >
-                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    <Twitter className="size-4" />
-                    <span>JP</span>
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="relative border-dashed"
-                >
-                  <a
-                    href={siteConfig.socials.x_global}
-                    target="_blank"
-                    className="gap-2 group"
-                  >
-                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    <Twitter className="size-4" />
-                    <span>Global</span>
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="relative border-dashed"
-                >
-                  <a
-                    href={siteConfig.socials.zenn}
-                    target="_blank"
-                    className="gap-2 group"
-                  >
-                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    <Zap className="size-4" />
-                    <span>Zenn</span>
-                  </a>
-                </Button>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="relative border-dashed"
-                >
-                  <a
-                    href={siteConfig.socials.linkedin}
-                    target="_blank"
-                    className="gap-2 group"
-                  >
-                    <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                    <Linkedin className="size-4" />
-                    <span>Linkedin</span>
-                  </a>
-                </Button>
-              </div>
+              <HeroOrClock bio={t("bio")} />
             </div>
           </div>
           <div
@@ -477,6 +388,102 @@ export default function Home({
             ))}
           </div>
         </div>
+      </div>
+    </ClockModeProvider>
+  );
+}
+
+function HeroOrClock({ bio }: { bio: string }) {
+  const clockMode = useClockMode();
+
+  if (clockMode?.isClockMode) {
+    return (
+      <div
+        id="hero"
+        className="clock-embed-enter flex flex-col px-6 pt-6 md:pb-6 pb-6 border-b md:border-0 border-dashed"
+      >
+        <ClockApp embedded />
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div
+        id="hero"
+        className="flex flex-col px-6 pt-6 md:pb-0 pb-6 border-b md:border-0 border-dashed"
+      >
+        <h1 className="head-text-md">Soma Takata</h1>
+        <p className="text-muted-foreground max-w-3xl">{bio}</p>
+      </div>
+      <div className="relative md:hidden w-full aspect-square bg-background items-center justify-center group/soma border-b border-dashed">
+        <Image
+          src="/flower.png"
+          alt="flower"
+          fill
+          className="w-full h-full object-contain scale-75"
+        />
+        <div className="absolute top-0 left-0 size-4 border-t-2 border-l-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
+        <div className="absolute top-0 right-0 size-4 border-t-2 border-r-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
+        <div className="absolute bottom-0 left-0 size-4 border-b-2 border-l-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
+        <div className="absolute bottom-0 right-0 size-4 border-b-2 border-r-2 border-foreground opacity-0 group-hover/soma:opacity-100 transition-all duration-200"></div>
+      </div>
+      <div id="cta" className="flex flex-wrap items-center gap-3 p-6">
+        <Button variant="outline" asChild className="relative border-dashed">
+          <a
+            href={siteConfig.socials.github}
+            target="_blank"
+            className="gap-2 group"
+          >
+            <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <Github className="size-4" />
+            <span>GitHub</span>
+          </a>
+        </Button>
+        <Button variant="outline" asChild className="relative border-dashed">
+          <a
+            href={siteConfig.socials.x_jp}
+            target="_blank"
+            className="gap-2 group"
+          >
+            <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <Twitter className="size-4" />
+            <span>JP</span>
+          </a>
+        </Button>
+        <Button variant="outline" asChild className="relative border-dashed">
+          <a
+            href={siteConfig.socials.x_global}
+            target="_blank"
+            className="gap-2 group"
+          >
+            <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <Twitter className="size-4" />
+            <span>Global</span>
+          </a>
+        </Button>
+        <Button variant="outline" asChild className="relative border-dashed">
+          <a
+            href={siteConfig.socials.zenn}
+            target="_blank"
+            className="gap-2 group"
+          >
+            <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <Zap className="size-4" />
+            <span>Zenn</span>
+          </a>
+        </Button>
+        <Button variant="outline" asChild className="relative border-dashed">
+          <a
+            href={siteConfig.socials.linkedin}
+            target="_blank"
+            className="gap-2 group"
+          >
+            <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            <Linkedin className="size-4" />
+            <span>Linkedin</span>
+          </a>
+        </Button>
       </div>
     </>
   );
