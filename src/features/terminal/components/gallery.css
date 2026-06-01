@@ -1,0 +1,139 @@
+.lumina {
+  --lumina-bg: #f3f4f5;
+  --lumina-text: #111111;
+  --lumina-muted: #888888;
+  --lumina-border: #d0d0d0;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 70vh;
+  background-color: var(--lumina-bg);
+  color: var(--lumina-text);
+  font-family: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  overflow: hidden;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* System UI labels */
+.lumina-sys {
+  position: absolute;
+  z-index: 100;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lumina-text);
+  mix-blend-mode: multiply;
+}
+
+.lumina-header {
+  top: 24px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.lumina-coord {
+  color: var(--lumina-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 3D carousel */
+.lumina-stage {
+  position: absolute;
+  inset: 0;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+.lumina-stage.is-grabbing {
+  cursor: grabbing;
+}
+
+.lumina-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(160px, 15vw, 300px);
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.lumina-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 1px 3px rgba(0, 0, 0, 0.05);
+  background-color: #e0e0e0;
+}
+
+.lumina-label {
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  color: var(--lumina-muted);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.lumina-item.is-active .lumina-label {
+  opacity: 1;
+}
+
+/* Caption */
+.lumina-caption {
+  position: absolute;
+  bottom: 64px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  text-align: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 0 24px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--lumina-muted);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.lumina-caption strong {
+  color: var(--lumina-text);
+  font-weight: 500;
+}
+
+/* Progress bar */
+.lumina-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--lumina-text);
+  width: 0%;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .lumina-caption {
+    bottom: 40px;
+  }
+}
