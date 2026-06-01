@@ -573,12 +573,23 @@
   background: transparent;
   padding: 8px 0 24px;
   perspective: 1400px;
-  /* Compact sizing so it fits the hero column. */
-  --card-width: 64px;
-  --card-height: 92px;
-  --font-size: 72px;
-  --spacing-group: 18px;
+  /* Mobile: keep the seconds readable. */
+  --card-width: 72px;
+  --card-height: 104px;
+  --font-size: 80px;
+  --spacing-group: 16px;
   --spacing-digit: 6px;
+}
+
+/* Very small phones: shrink the housing padding, keep digits large. */
+@media (max-width: 380px) {
+  .flip-clock-scene.is-embedded {
+    --card-width: 60px;
+    --card-height: 88px;
+    --font-size: 66px;
+    --spacing-group: 10px;
+    --spacing-digit: 5px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -587,6 +598,19 @@
     --card-height: 118px;
     --font-size: 92px;
     --spacing-group: 22px;
+  }
+}
+
+/* Embedded housing should not overflow the narrow hero column. */
+.flip-clock-scene.is-embedded .clock-housing {
+  padding: 20px 18px;
+  max-width: 100%;
+}
+
+@media (max-width: 380px) {
+  .flip-clock-scene.is-embedded .clock-housing {
+    padding: 14px 10px;
+    gap: var(--spacing-group);
   }
 }
 
@@ -651,5 +675,53 @@
 @media (prefers-reduced-motion: reduce) {
   .clock-embed-enter {
     animation-duration: 1ms;
+  }
+}
+
+/* ───────────── Section flip (hero ⇆ clock) ───────────── */
+.hero-flip {
+  perspective: 1800px;
+}
+
+.hero-flip-inner {
+  position: relative;
+  display: grid;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0.1, 0.2, 1);
+  will-change: transform;
+}
+
+.hero-flip.is-flipped .hero-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.hero-flip-face {
+  grid-area: 1 / 1;
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  min-width: 0;
+}
+
+.hero-flip-front {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Hide the back-facing side from pointer/tab while it's turned away. */
+.hero-flip:not(.is-flipped) .hero-flip-back {
+  pointer-events: none;
+}
+.hero-flip.is-flipped .hero-flip-front {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-flip-inner {
+    transition-duration: 1ms;
   }
 }
