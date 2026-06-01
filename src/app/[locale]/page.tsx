@@ -4,10 +4,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import ThemeAndLanguageTogglersContainer from "@/components/theme/togglers-container";
-import {
-  ClockModeProvider,
-  useClockMode,
-} from "@/components/theme/clock-mode";
+import { ClockModeProvider, useClockMode } from "@/components/theme/clock-mode";
 import ClockApp from "@/app/[locale]/clock/ClockApp";
 import "@/app/[locale]/clock/flip-clock.css";
 import { Button } from "@/components/ui/button";
@@ -404,11 +401,9 @@ function HeroOrClock({ bio }: { bio: string }) {
     </>
   );
 
-  const clock = <ClockApp embedded />;
-
   return (
     <>
-      {/* Mobile: only the name + bio block flips into the clock. */}
+      {/* Mobile: only the name + bio block flips into the clock (no controls). */}
       <div className="md:hidden">
         <FlipPanel
           flipped={flipped}
@@ -425,7 +420,7 @@ function HeroOrClock({ bio }: { bio: string }) {
               id="hero"
               className="flex flex-col px-6 py-6 border-b border-dashed h-full"
             >
-              {clock}
+              <ClockApp embedded showControls={false} />
             </div>
           }
         />
@@ -457,8 +452,11 @@ function HeroOrClock({ bio }: { bio: string }) {
             </>
           }
           back={
-            <div id="hero" className="flex flex-col px-6 py-6 border-dashed">
-              {clock}
+            <div
+              id="hero"
+              className="flex flex-col px-6 py-6 border-dashed gap-6"
+            >
+              <ClockApp embedded />
             </div>
           }
         />

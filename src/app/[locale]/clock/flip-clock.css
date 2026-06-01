@@ -726,6 +726,18 @@
   transform: rotateX(180deg);
 }
 
+/* Only the visible face occupies layout flow, so the box height follows
+   the active side and there is no leftover space below the shorter one.
+   The hidden face is taken out of flow (absolute) but kept for the turn. */
+.hero-flip:not(.is-flipped) .hero-flip-back {
+  position: absolute;
+  inset: 0;
+}
+.hero-flip.is-flipped .hero-flip-front {
+  position: absolute;
+  inset: 0;
+}
+
 /* Shading that sweeps across each face during the turn, so the panel
    reads as a solid flap catching light rather than a flat fade. */
 .hero-flip-face::after {
