@@ -44,11 +44,11 @@
       {
         "iconType": "Users",
         "date": "2026.8.28",
-        "title": "IBM AI Innovator Hackathon で優勝、チーム内MVPも受賞しました",
-        "description": "日本IBM主催の5日間のハッカソンに参加し、生成AI・AIエージェント技術で社会や企業の課題解決に取り組みました。10チーム中1位を獲得し、あわせてチーム内MVPにも選ばれました。",
-        "category": "ハッカソン / 受賞",
+        "title": "IBM のインターンシップで10チーム中1位、チーム内MVPを受賞しました",
+        "description": "日本IBM主催の5日間のインターンシップに参加し、生成AI・AIエージェント技術で社会や企業の課題解決に取り組みました。10チーム中1位を獲得し、あわせてチーム内MVPにも選ばれました。",
+        "category": "インターンシップ / 受賞",
         "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon",
-        "type": "受賞"
+        "type": "インターン"
       },
       {
         "iconType": "BookOpen",
@@ -101,10 +101,10 @@
     "title": "経歴",
     "items": [
       {
-        "iconType": "award",
+        "iconType": "code",
         "period": "2026.8",
-        "title": "IBM AI Innovator Hackathon 優勝",
-        "description": "10チーム中1位。あわせてチーム内MVPを受賞",
+        "title": "日本アイ・ビー・エム株式会社 (AI Innovator Hackathon)",
+        "description": "生成AI・AIエージェントを用いた5日間のインターン。10チーム中1位、チーム内MVP",
         "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon"
       },
       {

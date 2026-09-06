@@ -44,11 +44,11 @@
       {
         "iconType": "Users",
         "date": "2026.8.28",
-        "title": "Won 1st Place and Team MVP at the IBM AI Innovator Hackathon",
-        "description": "A five-day hackathon hosted by IBM Japan, tackling business and social problems with generative AI and AI agent technology. Our team placed first out of ten, and I was also named team MVP.",
-        "category": "Hackathon / Award",
+        "title": "Placed 1st of 10 Teams and Won Team MVP on the IBM Internship",
+        "description": "A five-day internship hosted by IBM Japan, tackling business and social problems with generative AI and AI agent technology. Our team placed first out of ten, and I was also named team MVP.",
+        "category": "Internship / Award",
         "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon",
-        "type": "Award"
+        "type": "Internship"
       },
       {
         "iconType": "BookOpen",
@@ -101,10 +101,10 @@
     "title": "Experience",
     "items": [
       {
-        "iconType": "award",
+        "iconType": "code",
         "period": "2026.8",
-        "title": "Won IBM AI Innovator Hackathon",
-        "description": "1st place out of 10 teams; also awarded team MVP",
+        "title": "IBM Japan (AI Innovator Hackathon)",
+        "description": "Five-day internship building with generative AI and AI agents — 1st of 10 teams, team MVP",
         "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon"
       },
       {
