@@ -203,7 +203,7 @@
         "title": "Portfolio",
         "description": "This is a portfolio website that I made for myself.",
         "technologies": ["Next.js", "React", "TypeScript", "Framer Motion"],
-        "link": "https://soma-takata.vercel.app/",
+        "link": "https://somatakata.com/",
         "github": "",
         "status": "Live"
       },

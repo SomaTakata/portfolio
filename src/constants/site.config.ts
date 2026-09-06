@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   title: "SomaTakata Portfolio",
   description:
     "Hi I am SomaTakata, a software engineer in Japan. I am a full stack developer. I always use Next.js and Tailwind CSS.",
-  origin: "https://soma-takata.vercel.app",
+  origin: "https://somatakata.com",
   keywords: [
     "SomaTakata",
     "Soma Takata",
@@ -27,10 +27,10 @@ export const siteConfig: SiteConfig = {
     "frontend developer",
     "portfolio",
   ],
-  og: "https://soma-takata.vercel.app/og.png",
+  og: "https://somatakata.com/og.png",
   creator: {
     name: "soma-takata",
-    url: "https://",
+    url: "https://somatakata.com",
   },
   socials: {
     github: "https://github.com/SomaTakata",

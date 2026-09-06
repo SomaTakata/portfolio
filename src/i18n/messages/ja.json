@@ -203,7 +203,7 @@
         "title": "ポートフォリオ",
         "description": "自分用に作成したポートフォリオサイトです。",
         "technologies": ["Next.js", "React", "TypeScript", "Framer Motion"],
-        "link": "https://soma-takata.vercel.app/",
+        "link": "https://somatakata.com/",
         "github": "",
         "status": "Live"
       },

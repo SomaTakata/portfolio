@@ -1,0 +1,10 @@
+# ローカルの Workers ランタイム (bun run preview / wrangler dev) 用。
+# .env と同じ値をここにも入れる (.dev.vars は git 管理外)。
+NEXTJS_ENV=development
+DATABASE_URL=""
+BETTER_AUTH_SECRET=""
+BETTER_AUTH_URL="http://localhost:8788"
+GITHUB_CLIENT_ID=""
+GITHUB_CLIENT_SECRET=""
+GOOGLE_CLIENT_ID=""
+GOOGLE_CLIENT_SECRET=""
