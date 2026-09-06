@@ -1,6 +1,5 @@
 {
   "common": {
-    "language": "日本語",
     "socials": {
       "github": "GitHub",
       "x_jp": "JP",
@@ -8,14 +7,6 @@
       "zenn": "Zenn",
       "linkedin": "Linkedin"
     }
-  },
-  "nav": {
-    "activity": "アクティビティ",
-    "experience": "経歴",
-    "skills": "スキル",
-    "news": "ニュース",
-    "projects": "プロジェクト",
-    "terminal": "アートギャラリー"
   },
   "home": {
     "bio": "日本で活動するソフトウェアエンジニアです。フルスタック開発を軸に、Next.js と Tailwind CSS を用いた Web 開発を行っています。",
@@ -346,102 +337,6 @@
         "description": "バックエンド開発に使用",
         "category": "言語",
         "link": "https://golang.org/"
-      }
-    ]
-  },
-  "terminal": {
-    "title": "アートギャラリー",
-    "timeline": [
-      {
-        "date": "2025.10 -",
-        "output": "D4V (Design for Ventures)",
-        "description": "業務自動化・内部ツール開発",
-        "link": "https://d4v.com/",
-        "type": "work"
-      },
-      {
-        "date": "2025.10 - 2025.11",
-        "output": "Nulogic Inc.",
-        "description": "Studio Stockの開発に貢献",
-        "link": "https://nulogic.co.jp/",
-        "type": "work"
-      },
-      {
-        "date": "2025.5 - 2025.7",
-        "output": "Mercari Inc. (Mercari Hallo)",
-        "description": "フロントエンド開発（3ヶ月）",
-        "link": "https://hallo.mercari.com/",
-        "type": "work"
-      },
-      {
-        "date": "2025.3",
-        "output": "Nulogic Inc.",
-        "description": "新機能開発（2ヶ月）",
-        "link": "https://nulogic.co.jp/",
-        "type": "work"
-      },
-      {
-        "date": "2025.2",
-        "output": "しばよこ 代表として創設",
-        "description": "エンジニアとデザイナーのサークルを設立",
-        "link": "https://x.com/ShibaYoko_SIT",
-        "type": "leadership"
-      },
-      {
-        "date": "2025.1",
-        "output": "NOT A HOTEL Inc.",
-        "description": "新機能開発（2週間）",
-        "link": "https://notahotel.com/",
-        "type": "work"
-      },
-      {
-        "date": "2024.12",
-        "output": "Medley Inc.",
-        "description": "フルスタック開発（2週間）",
-        "link": "https://www.medley.jp/",
-        "type": "work"
-      },
-      {
-        "date": "2024.9",
-        "output": "LayerX Inc.",
-        "description": "フルスタック開発（2週間）",
-        "link": "https://layerx.co.jp/",
-        "type": "work"
-      },
-      {
-        "date": "2024.4",
-        "output": "How Television Co., Ltd.",
-        "description": "フロントエンド開発（3ヶ月）",
-        "link": "https://howtelevision.co.jp/",
-        "type": "work"
-      },
-      {
-        "date": "2024.3",
-        "output": "TechNova 代表として創設",
-        "description": "プログラミングサークルを設立",
-        "link": "https://x.com/ShibaYoko_SIT",
-        "type": "leadership"
-      },
-      {
-        "date": "2023.11",
-        "output": "MichibikuGroup Co., Ltd.",
-        "description": "フロントエンド開発（2ヶ月）",
-        "link": "https://michibikugroup.co.jp/",
-        "type": "work"
-      },
-      {
-        "date": "2023.5",
-        "output": "株式会社リクルート",
-        "description": "フロントエンド開発（10ヶ月）",
-        "link": "https://www.recruit.co.jp/",
-        "type": "work"
-      },
-      {
-        "date": "2022.4",
-        "output": "芝浦工業大学入学",
-        "description": "コンピュータサイエンス学部で勉強を開始",
-        "link": "https://www.shibaura-it.ac.jp/",
-        "type": "education"
       }
     ]
   }
