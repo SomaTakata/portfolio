@@ -1,0 +1,41 @@
+/* 画面表示は他ページと同じ配色。印刷時だけ紙に合わせて白地・黒文字に落とす。 */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 14mm 16mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .resume-no-print {
+    display: none !important;
+  }
+
+  .resume-sheet {
+    max-width: none;
+    padding: 0;
+    color: #000;
+  }
+
+  .resume-sheet a {
+    color: #000;
+    text-decoration: none;
+  }
+
+  /* 見出しと最初の項目が別ページに分かれるのを防ぐ */
+  .resume-section {
+    break-inside: avoid;
+  }
+
+  .resume-entry {
+    break-inside: avoid;
+  }
+
+  .resume-rule {
+    border-color: #000 !important;
+  }
+}

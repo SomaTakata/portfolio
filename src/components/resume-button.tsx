@@ -1,10 +1,9 @@
 "use client";
 
-import { FileDown } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
+import { FileText } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/constants/site.config";
-import type { Locale } from "@/types";
+import { Link } from "@/i18n/navigation";
 
 /**
  * compact … モバイルモーダル内のソーシャルリンクと同じ見た目
@@ -12,8 +11,6 @@ import type { Locale } from "@/types";
  */
 export function ResumeButton({ size = "full" }: { size?: "compact" | "full" }) {
   const t = useTranslations("common");
-  const locale = useLocale() as Locale;
-  const resume = siteConfig.resume[locale] ?? siteConfig.resume.en;
 
   if (size === "compact") {
     return (
@@ -23,10 +20,10 @@ export function ResumeButton({ size = "full" }: { size?: "compact" | "full" }) {
         asChild
         className="border-dashed text-muted-foreground hover:text-primary"
       >
-        <a href={resume.href} download={resume.fileName} className="gap-2">
-          <FileDown className="size-3" />
+        <Link href="/resume" className="gap-2">
+          <FileText className="size-3" />
           <span className="text-xs">{t("resume")}</span>
-        </a>
+        </Link>
       </Button>
     );
   }
@@ -37,15 +34,11 @@ export function ResumeButton({ size = "full" }: { size?: "compact" | "full" }) {
       asChild
       className="relative border-dashed text-muted-foreground hover:text-primary"
     >
-      <a
-        href={resume.href}
-        download={resume.fileName}
-        className="gap-2 group"
-      >
+      <Link href="/resume" className="gap-2 group">
         <div className="w-full h-[1px] bg-linear-to-r from-primary/0 via-primary to-primary/0 absolute top-0 -left-1/2 translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-        <FileDown className="size-4" />
+        <FileText className="size-4" />
         <span>{t("resume")}</span>
-      </a>
+      </Link>
     </Button>
   );
 }
