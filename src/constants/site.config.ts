@@ -32,6 +32,13 @@ export const siteConfig: SiteConfig = {
     name: "soma-takata",
     url: "https://somatakata.com",
   },
+  resume: {
+    en: { href: "/resume/soma-takata-cv-en.pdf", fileName: "SomaTakata-CV.pdf" },
+    ja: {
+      href: "/resume/soma-takata-resume-ja.pdf",
+      fileName: "SomaTakata-履歴書.pdf",
+    },
+  },
   socials: {
     github: "https://github.com/SomaTakata",
     x_jp: "https://x.com/soma_takata",

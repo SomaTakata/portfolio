@@ -11,6 +11,7 @@ export type SiteConfig = {
     name: string;
     url: string;
   };
+  resume: Record<Locale, { href: string; fileName: string }>;
   socials: {
     github: string;
     x_jp: string;

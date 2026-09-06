@@ -3,6 +3,7 @@
 // import { useState } from "react";
 import ThemeAndLanguageTogglersContainer from "@/components/theme/togglers-container";
 import { Button } from "@/components/ui/button";
+import { ResumeButton } from "@/components/resume-button";
 import { siteConfig } from "@/constants/site.config";
 import { cn } from "@/utils/utils";
 import { useTranslations } from "next-intl";
@@ -249,6 +250,7 @@ export default function HomeLayout({
                         <span className="text-xs">LinkedIn</span>
                       </a>
                     </Button>
+                    <ResumeButton size="compact" />
                   </div>
                 </div>
               </div>
@@ -465,6 +467,7 @@ export default function HomeLayout({
                     <span>Linkedin</span>
                   </a>
                 </Button>
+                <ResumeButton />
               </div>
             </div>
 

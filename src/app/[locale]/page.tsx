@@ -8,6 +8,7 @@ import { ClockModeProvider, useClockMode } from "@/components/theme/clock-mode";
 import ClockApp from "@/features/clock/ClockApp";
 import "@/features/clock/flip-clock.css";
 import { Button } from "@/components/ui/button";
+import { ResumeButton } from "@/components/resume-button";
 import { siteConfig } from "@/constants/site.config";
 import { cn } from "@/utils/utils";
 import {
@@ -234,6 +235,7 @@ export default function Home({
                         </span>
                       </a>
                     </Button>
+                    <ResumeButton size="compact" />
                   </div>
                 </div>
               </div>
@@ -506,6 +508,7 @@ function CtaButtons() {
           <span>Linkedin</span>
         </a>
       </Button>
+      <ResumeButton />
     </div>
   );
 }

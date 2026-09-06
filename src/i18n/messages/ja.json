@@ -6,7 +6,8 @@
       "x_global": "Global",
       "zenn": "Zenn",
       "linkedin": "Linkedin"
-    }
+    },
+    "resume": "履歴書"
   },
   "home": {
     "bio": "日本で活動するソフトウェアエンジニアです。フルスタック開発を軸に、Next.js と Tailwind CSS を用いた Web 開発を行っています。",
