@@ -7,8 +7,7 @@
       "x_global": "Global",
       "zenn": "Zenn",
       "linkedin": "Linkedin"
-    },
-    "signOut": "サインアウト"
+    }
   },
   "nav": {
     "activity": "アクティビティ",
@@ -52,6 +51,24 @@
     "items": [
       {
         "iconType": "Users",
+        "date": "2026.8.28",
+        "title": "IBM AI Innovator Hackathon で優勝、チーム内MVPも受賞しました",
+        "description": "日本IBM主催の5日間のハッカソンに参加し、生成AI・AIエージェント技術で社会や企業の課題解決に取り組みました。10チーム中1位を獲得し、あわせてチーム内MVPにも選ばれました。",
+        "category": "ハッカソン / 受賞",
+        "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon",
+        "type": "受賞"
+      },
+      {
+        "iconType": "BookOpen",
+        "date": "2026.8.25",
+        "title": "ソラコムのエンジニアブログにインターンの記事が掲載されました",
+        "description": "サマーインターンで Automotive/MVNE チームに配属され、Connectivity Hypervisor の eUICC 検索機能を担当しました。API 定義・インデックス構築・検索 API・eUICC 管理サービス・UI という5つの層にまたがる設計と実装の過程をまとめた記事です。",
+        "category": "インターンシップ報告",
+        "link": "https://blog.soracom.com/ja-jp/2026/08/25/soma-soracom-intern-at-connectivity-hypervisor/",
+        "type": "ブログ掲載"
+      },
+      {
+        "iconType": "Users",
         "date": "2025.12.12",
         "title": "【記念すべき第１回】しばよこサマーハッカソン開催！",
         "description": "芝浦工業大学発の共創サークル『しばよこ』で開催した第1回サマーハッカソンのレポート記事です。約50名・9チームで5日間開発し、発表・懇親会・協賛企業フィードバックまでを振り返っています。",
@@ -91,6 +108,20 @@
   "experience": {
     "title": "経歴",
     "items": [
+      {
+        "iconType": "award",
+        "period": "2026.8",
+        "title": "IBM AI Innovator Hackathon 優勝",
+        "description": "10チーム中1位。あわせてチーム内MVPを受賞",
+        "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon"
+      },
+      {
+        "iconType": "code",
+        "period": "2026.7 - 2026.8",
+        "title": "株式会社ソラコム",
+        "description": "Connectivity Hypervisor の eUICC 検索機能を設計・実装（2ヶ月）",
+        "link": "https://soracom.jp/"
+      },
       {
         "iconType": "code",
         "period": "2025.10 -",
@@ -192,7 +223,12 @@
         "period": "2026.3 - 現在",
         "title": "ZURE-CLOCK",
         "description": "現在時刻を表示するシンプルなWebクロックです。通常表示に加えて、実時刻より10〜20分先行した時刻を表示する『ランダム進み時計』を1クリックでON/OFFできます。進み幅は10分ごとにランダム更新され、遅刻防止や行動の前倒しを自然に促します。",
-        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Vercel"
+        ],
         "link": "https://zure-clock.vercel.app/",
         "github": "",
         "status": "Live"
@@ -202,7 +238,12 @@
         "period": "2024.2 - 現在",
         "title": "ポートフォリオ",
         "description": "自分用に作成したポートフォリオサイトです。",
-        "technologies": ["Next.js", "React", "TypeScript", "Framer Motion"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Framer Motion"
+        ],
         "link": "https://somatakata.com/",
         "github": "",
         "status": "Live"
@@ -228,7 +269,12 @@
         "period": "2025.4 - 2025.4",
         "title": "Artofolio",
         "description": "エンジニア向けのポートフォリオサービスで、プロジェクト、技術スキル、ソーシャルメディアリンクを美しく展示します。アート美術館のように。",
-        "technologies": ["Next.js", "React", "TypeScript", "Three.js"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Three.js"
+        ],
         "link": "https://github.com/SomaTakata/ARTOFOLIO",
         "github": "",
         "status": "Development"
@@ -238,7 +284,12 @@
         "period": "2024.5 - 現在",
         "title": "MazeMaze",
         "description": "AI とポッドキャスティングができるサービスです。",
-        "technologies": ["Next.js", "React", "TypeScript", "RealTime API"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "RealTime API"
+        ],
         "link": "https://student.redesigner.jp/portfolios/PF31c7a227d463980aa3d989ca7f9879c9",
         "github": "",
         "status": "Development"

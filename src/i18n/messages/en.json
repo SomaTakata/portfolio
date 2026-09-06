@@ -7,8 +7,7 @@
       "x_global": "Global",
       "zenn": "Zenn",
       "linkedin": "Linkedin"
-    },
-    "signOut": "Sign Out"
+    }
   },
   "nav": {
     "activity": "Activity",
@@ -52,6 +51,24 @@
     "items": [
       {
         "iconType": "Users",
+        "date": "2026.8.28",
+        "title": "Won 1st Place and Team MVP at the IBM AI Innovator Hackathon",
+        "description": "A five-day hackathon hosted by IBM Japan, tackling business and social problems with generative AI and AI agent technology. Our team placed first out of ten, and I was also named team MVP.",
+        "category": "Hackathon / Award",
+        "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon",
+        "type": "Award"
+      },
+      {
+        "iconType": "BookOpen",
+        "date": "2026.8.25",
+        "title": "Featured on the SORACOM Engineering Blog",
+        "description": "As a summer intern on the Automotive/MVNE team I designed and implemented eUICC search for Connectivity Hypervisor. The article walks through all five layers involved — API definition, index building, the search API, the eUICC management service, and the UI.",
+        "category": "Internship Report",
+        "link": "https://blog.soracom.com/ja-jp/2026/08/25/soma-soracom-intern-at-connectivity-hypervisor/",
+        "type": "Blog Feature"
+      },
+      {
+        "iconType": "Users",
         "date": "2025.12.12",
         "title": "[First Edition] ShibaYoko Summer Hackathon Recap",
         "description": "A recap of the first internal summer hackathon hosted by ShibaYoko, our engineer-designer co-creation circle at Shibaura Institute of Technology. About 50 participants across 9 teams built and presented projects over 5 days.",
@@ -91,6 +108,20 @@
   "experience": {
     "title": "Experience",
     "items": [
+      {
+        "iconType": "award",
+        "period": "2026.8",
+        "title": "Won IBM AI Innovator Hackathon",
+        "description": "1st place out of 10 teams; also awarded team MVP",
+        "link": "https://www.ibm.com/jp-ja/careers/blog/ibm-ai-innovator-hackathon"
+      },
+      {
+        "iconType": "code",
+        "period": "2026.7 - 2026.8",
+        "title": "SORACOM, Inc.",
+        "description": "Designed and built eUICC search for Connectivity Hypervisor (2 months)",
+        "link": "https://soracom.jp/"
+      },
       {
         "iconType": "code",
         "period": "2025.10 -",
@@ -192,7 +223,12 @@
         "period": "2026.3 - Present",
         "title": "ZURE-CLOCK",
         "description": "A minimal web clock that shows the current time. In addition to normal display, it offers a one-click toggle for a random advanced-time mode that shows a time 10-20 minutes ahead of real time. The offset is refreshed randomly every 10 minutes to naturally encourage earlier actions and reduce lateness.",
-        "technologies": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+        "technologies": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Vercel"
+        ],
         "link": "https://zure-clock.vercel.app/",
         "github": "",
         "status": "Live"
@@ -202,7 +238,12 @@
         "period": "2024.2 - Present",
         "title": "Portfolio",
         "description": "This is a portfolio website that I made for myself.",
-        "technologies": ["Next.js", "React", "TypeScript", "Framer Motion"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Framer Motion"
+        ],
         "link": "https://somatakata.com/",
         "github": "",
         "status": "Live"
@@ -228,7 +269,12 @@
         "period": "2025.4 - 2025.4",
         "title": "Artofolio",
         "description": "Artofolio is a portfolio service for engineers that beautifully showcases your projects, technical skills, and social media links—just like an art museum.",
-        "technologies": ["Next.js", "React", "TypeScript", "Three.js"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Three.js"
+        ],
         "link": "https://github.com/SomaTakata/ARTOFOLIO",
         "github": "",
         "status": "Development"
@@ -238,7 +284,12 @@
         "period": "2024.5 - Present",
         "title": "MazeMaze",
         "description": "This is a service that allows podcasting with AI.",
-        "technologies": ["Next.js", "React", "TypeScript", "RealTime API"],
+        "technologies": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "RealTime API"
+        ],
         "link": "https://student.redesigner.jp/portfolios/PF31c7a227d463980aa3d989ca7f9879c9",
         "github": "",
         "status": "Development"
