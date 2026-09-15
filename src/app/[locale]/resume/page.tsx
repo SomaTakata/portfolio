@@ -49,7 +49,7 @@ export default async function ResumePage({
       </div>
 
       <article className="resume-sheet mx-auto max-w-3xl px-6 py-10 md:py-14">
-        <header>
+        <header className="resume-header">
           <h1 className="font-heading text-3xl font-bold tracking-tight md:text-4xl">
             {siteConfig.name === "SomaTakata" ? "Soma Takata" : siteConfig.name}
           </h1>
@@ -57,13 +57,13 @@ export default async function ResumePage({
             {content.headline}
           </p>
 
-          <div className="mt-4 space-y-1.5 text-sm leading-relaxed">
+          <div className="resume-summary mt-4 space-y-1.5 text-sm leading-relaxed">
             {content.summary.map((line) => (
               <p key={line}>{line}</p>
             ))}
           </div>
 
-          <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs text-muted-foreground">
+          <ul className="resume-contact mt-4 flex flex-wrap gap-x-5 gap-y-1 font-mono text-xs text-muted-foreground">
             <li>
               <a href={`mailto:${resumeContact.email}`} className="hover:underline">
                 {resumeContact.email}
@@ -106,7 +106,7 @@ export default async function ResumePage({
         </Section>
 
         <Section title={content.labels.skills}>
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="resume-skills grid gap-4 sm:grid-cols-3">
             {content.skills.map((group) => (
               <div key={group.category} className="resume-entry">
                 <h3 className="text-sm font-semibold">{group.category}</h3>
@@ -128,7 +128,7 @@ export default async function ResumePage({
           </ul>
         </Section>
 
-        <footer className="mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-dashed pt-4 font-mono text-xs text-muted-foreground">
+        <footer className="resume-footer mt-10 flex flex-wrap items-center justify-between gap-3 border-t border-dashed pt-4 font-mono text-xs text-muted-foreground">
           <span>
             {content.labels.updated}: {resumeContact.updatedAt}
           </span>
@@ -157,7 +157,7 @@ function Section({
       <h2 className="resume-rule border-b border-dashed pb-1 font-heading text-lg font-bold tracking-tight">
         {title}
       </h2>
-      <div className="mt-4 space-y-5">{children}</div>
+      <div className="resume-entries mt-4 space-y-5">{children}</div>
     </section>
   );
 }

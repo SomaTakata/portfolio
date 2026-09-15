@@ -2,7 +2,7 @@
 @media print {
   @page {
     size: A4;
-    margin: 14mm 14mm 16mm;
+    margin: 12mm 13mm 12mm;
   }
 
   html,
@@ -15,10 +15,13 @@
     display: none !important;
   }
 
+  /* 紙では画面よりも一段詰めて、2ページに収める。 */
   .resume-sheet {
     max-width: none;
     padding: 0;
     color: #000;
+    font-size: 9.5pt;
+    line-height: 1.45;
   }
 
   .resume-sheet a {
@@ -26,16 +29,60 @@
     text-decoration: none;
   }
 
-  /* 見出しと最初の項目が別ページに分かれるのを防ぐ */
+  .resume-header h1 {
+    font-size: 17pt;
+    line-height: 1.2;
+  }
+
+  .resume-summary,
+  .resume-contact {
+    margin-top: 2.5mm;
+  }
+
+  .resume-summary > * + * {
+    margin-top: 0.6mm;
+  }
+
   .resume-section {
-    break-inside: avoid;
+    margin-top: 5mm;
+  }
+
+  /* 見出しだけがページ末尾に取り残されるのを防ぐ。
+     セクション全体を break-inside: avoid にすると、1ページに収まらない
+     「職務経歴」がまるごと次ページへ送られて大きな余白ができるため使わない。 */
+  .resume-rule {
+    break-after: avoid;
+    border-color: #000 !important;
+  }
+
+  .resume-entries,
+  .resume-skills {
+    margin-top: 2mm;
+  }
+
+  /* グリッド（スキル欄）は列がずれるので、縦の詰めは gap 側で行う。 */
+  .resume-skills {
+    gap: 3mm;
+  }
+
+  .resume-entries > * + * {
+    margin-top: 2.6mm;
   }
 
   .resume-entry {
     break-inside: avoid;
   }
 
-  .resume-rule {
-    border-color: #000 !important;
+  .resume-entry ul {
+    margin-top: 0.6mm;
+  }
+
+  .resume-entry li + li {
+    margin-top: 0.3mm;
+  }
+
+  .resume-footer {
+    margin-top: 5mm;
+    padding-top: 2mm;
   }
 }
