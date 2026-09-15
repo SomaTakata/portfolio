@@ -141,7 +141,7 @@ export const resume: Record<Locale, ResumeContent> = {
         period: "2025年2月 – 現在",
         bullets: [
           "デザイン × エンジニアリングの横断コミュニティを設立",
-          "3ヶ月で360名に成長、現在も代表として運営",
+          "3ヶ月で360名に成長し、現在は540名規模。代表として運営",
         ],
       },
       {
@@ -169,7 +169,7 @@ export const resume: Record<Locale, ResumeContent> = {
     languages: ["日本語（ネイティブ）", "英語（CEFR B1）"],
     skills: [
       {
-        category: "言語",
+        category: "プログラミング言語",
         items: ["TypeScript（3年）", "Go（1年）", "JavaScript", "HTML / CSS"],
       },
       {
@@ -310,7 +310,7 @@ export const resume: Record<Locale, ResumeContent> = {
         period: "February 2025 – Present",
         bullets: [
           "Established a cross-functional community combining design and engineering.",
-          "Grew to 360 members in 3 months, currently serving as president.",
+          "Grew to 360 members in 3 months and 540 members today, currently serving as president.",
         ],
       },
       {
@@ -339,7 +339,7 @@ export const resume: Record<Locale, ResumeContent> = {
     languages: ["Japanese (Native)", "English (CEFR B1)"],
     skills: [
       {
-        category: "Languages",
+        category: "Programming Languages",
         items: ["TypeScript (3 yrs)", "Go (1 yr)", "JavaScript", "HTML & CSS"],
       },
       {
