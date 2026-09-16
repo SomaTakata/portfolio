@@ -44,6 +44,6 @@ export const siteConfig: SiteConfig = {
     x_jp: "https://x.com/soma_takata",
     x_global: "https://x.com/soma_takata_en",
     zenn: "https://zenn.dev/soma_takata",
-    linkedin: "https://www.linkedin.com/in/soma-takata-819293303/",
+    linkedin: "https://www.linkedin.com/in/somatakata/",
   },
 };
