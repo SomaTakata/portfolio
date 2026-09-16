@@ -122,7 +122,10 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "Michibiku Group Co., Ltd.",
         role: "フロントエンドエンジニア（業務委託）",
         period: "2023年11月 – 2024年1月（2ヶ月）",
-        bullets: ["AI を活用した営業支援 Chrome 拡張ツールを開発"],
+        bullets: [
+          "AI を活用して採用スカウト業務を効率化する Chrome 拡張機能「Mach Scout」を開発",
+          "求人媒体上の候補者プロフィール解析から、パーソナライズしたスカウト文面の生成までを自動化",
+        ],
       },
       {
         organization: "株式会社リクルート",
@@ -291,7 +294,10 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "Michibiku Group",
         role: "Frontend Developer (Contract)",
         period: "November 2023 – January 2024, 2 months",
-        bullets: ["Developed an AI-powered sales support Chrome extension."],
+        bullets: [
+          "Built \"Mach Scout\", a Chrome extension that streamlines recruiting outreach with AI.",
+          "Automated the flow from parsing candidate profiles on job platforms through generating personalized outreach messages.",
+        ],
       },
       {
         organization: "Recruit Co., Ltd.",
