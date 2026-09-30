@@ -19,6 +19,7 @@ https://somatakata.com の個人ポートフォリオ。経歴・スキル・作
 - Workers には実行時のファイルシステムがない。`fs` でディレクトリを走査せず、必要ならビルド時にマニフェストを生成する。
 - `src/proxy.ts` は next-intl のロケールルーティングのみ。認証ロジックを足さない。
 - 環境変数もシークレットも使っていない（Worker のシークレットは 0 件）。
+- デプロイ (`bun run deploy`) の認証は `.dev.vars` の `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_ACCOUNT_ID` をシェルに読み込んで行う（`set -a && . ./.dev.vars && set +a && bun run deploy`）。wrangler は `.dev.vars` を認証に使わない。手順は README の Deploy 節。
 
 ## Architecture Principles
 - Feature-based organization (`src/features/`)

@@ -1,3 +1,8 @@
 # ローカルの Workers ランタイム (bun run preview / wrangler dev) 用。
 # 現状シークレットは不要なので、この 1 行だけで動きます。
 NEXTJS_ENV=development
+
+# デプロイ用 (bun run deploy)。wrangler はこのファイルを認証に使わないので、
+# `set -a && . ./.dev.vars && set +a && bun run deploy` のようにシェルへ読み込んでから実行する。
+CLOUDFLARE_API_TOKEN=
+CLOUDFLARE_ACCOUNT_ID=
