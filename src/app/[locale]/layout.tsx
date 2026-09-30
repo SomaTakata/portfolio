@@ -41,8 +41,8 @@ const baseMetadata: Metadata = {
     images: [
       {
         url: siteConfig.og,
-        width: 2880,
-        height: 1800,
+        width: 2400,
+        height: 1256,
         alt: siteConfig.name,
       },
     ],
@@ -56,8 +56,8 @@ const baseMetadata: Metadata = {
     description: siteConfig.description,
     images: {
       url: siteConfig.og,
-      width: 2880,
-      height: 1800,
+      width: 2400,
+      height: 1256,
       alt: siteConfig.name,
     },
   },
