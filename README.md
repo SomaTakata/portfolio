@@ -41,6 +41,22 @@ bun run dev
 bun run deploy
 ```
 
+Cloudflare への認証には、次のどちらかを使います。
+
+- `npx wrangler login` でブラウザからログインする
+- API トークンを `.dev.vars` に書き、シェルに読み込んでから実行する
+
+```bash
+cp .dev.vars.example .dev.vars   # CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID を埋める
+set -a && . ./.dev.vars && set +a && bun run deploy
+```
+
+トークンは Cloudflare ダッシュボードの My Profile → API Tokens で、テンプレート
+「Edit Cloudflare Workers」から作ります。アカウント ID は Workers & Pages の右側に出ています。
+wrangler は `.dev.vars` を認証には使わないため、上のようにシェルへ読み込む必要があります。
+`.dev.vars` は `.gitignore` 済みです。値は `bun run preview` / `wrangler dev` の Worker にも
+渡りますが、デプロイ時にはアップロードされません。
+
 `opennextjs-cloudflare build` でビルドし、Worker `portfolio` に配信します。
 カスタムドメイン (`somatakata.com` / `www.somatakata.com`) は `wrangler.jsonc` の
 `routes` で管理しています。
