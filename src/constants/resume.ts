@@ -45,6 +45,16 @@ export const resume: Record<Locale, ResumeContent> = {
     },
     experience: [
       {
+        organization: "エムシーディースリー株式会社",
+        role: "ソフトウェアエンジニアインターン",
+        period: "2026年9月 – 2026年10月（2ヶ月）",
+        bullets: [
+          "生成AIエージェントと Tachyon Apps を MCP で連携する PoC・機能開発を担当",
+          "MCP サーバーの設計・実装から、認証・権限設計、議事録 HTML 生成・プレビュー機能まで一貫して開発",
+          "AI に任せる処理とシステム側で保証すべき処理を整理し、実用的な AI エージェント連携の設計を検証",
+        ],
+      },
+      {
         organization: "日本アイ・ビー・エム株式会社",
         role: "AI Innovator Hackathon インターン",
         period: "2026年8月（5日間）",
@@ -73,7 +83,7 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "Nulogic Inc.",
         role: "Studio.stock — UX設計",
         period: "2025年10月 – 2025年11月",
-        bullets: ["プロダクトの情報設計・UXデザインを担当"],
+        bullets: ["プロダクトの体験設計・UXデザインを一部担当"],
       },
       {
         organization: "Mercari Inc.（Hallo事業部）",
@@ -88,7 +98,7 @@ export const resume: Record<Locale, ResumeContent> = {
       {
         organization: "Nulogic Inc.",
         role: "フルスタックエンジニア",
-        period: "2025年3月 – 2025年4月（2ヶ月）",
+        period: "2025年3月 – 2025年5月（3ヶ月）",
         bullets: [
           "サブスク自動解約プロトタイプをブラウザ自動化で開発",
           "LLM を活用した UI 自動生成ツールを開発",
@@ -98,7 +108,10 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "NOT A HOTEL Inc.",
         role: "フロントエンド開発インターン",
         period: "2025年1月（2週間）",
-        bullets: ["新規機能開発"],
+        bullets: [
+          "実際に提供されているプロダクトの UI/UX 改善提案を担当",
+          "ユーザーが過去の履歴を参照できる UI/UX を設計し、画面設計から提案までを実施",
+        ],
       },
       {
         organization: "Medley Inc.",
@@ -110,7 +123,10 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "LayerX Inc.",
         role: "サマーインターン（フルスタック開発）",
         period: "2024年9月（2週間）",
-        bullets: ["Next.js と Go を使用してチーム開発"],
+        bullets: [
+          "Next.js と Go を使用し、顧客要望をもとに優先度を決めた機能をフルスタックで開発",
+          "チーム発表で UI/UX とプレゼンテーションが評価され最優秀賞を受賞",
+        ],
       },
       {
         organization: "How Television Co., Ltd.",
@@ -121,7 +137,7 @@ export const resume: Record<Locale, ResumeContent> = {
       {
         organization: "Michibiku Group Co., Ltd.",
         role: "フロントエンドエンジニア（業務委託）",
-        period: "2023年11月 – 2024年1月（2ヶ月）",
+        period: "2023年11月 – 2024年1月（3ヶ月）",
         bullets: [
           "AI を活用して採用スカウト業務を効率化する Chrome 拡張機能「Mach Scout」を開発",
           "求人媒体上の候補者プロフィール解析から、パーソナライズしたスカウト文面の生成までを自動化",
@@ -217,6 +233,16 @@ export const resume: Record<Locale, ResumeContent> = {
     },
     experience: [
       {
+        organization: "MCD3 Inc.",
+        role: "Software Engineer Intern",
+        period: "September 2026 – October 2026, 2 months",
+        bullets: [
+          "Built a PoC and production features connecting generative AI agents to Tachyon Apps over MCP.",
+          "Owned the work end to end: MCP server design and implementation, authentication and permission design, and HTML meeting-minutes generation with preview.",
+          "Separated what to delegate to the AI from what the system must guarantee, validating a practical design for AI agent integration.",
+        ],
+      },
+      {
         organization: "IBM Japan",
         role: "AI Innovator Hackathon Intern",
         period: "August 2026 (5 days)",
@@ -245,7 +271,7 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "Nulogic Inc.",
         role: "Studio.stock — UX Design",
         period: "October 2025 – November 2025",
-        bullets: ["Owned information architecture and UX design for the product."],
+        bullets: ["Contributed to experience and UX design for the product."],
       },
       {
         organization: "Mercari Inc. (Hallo Div.)",
@@ -260,7 +286,7 @@ export const resume: Record<Locale, ResumeContent> = {
       {
         organization: "Nulogic Inc.",
         role: "Full-stack Developer",
-        period: "March 2025 – April 2025, 2 months",
+        period: "March 2025 – May 2025, 3 months",
         bullets: [
           "Built a subscription auto-cancellation prototype using browser automation.",
           "Developed UI generation tools powered by LLMs.",
@@ -270,7 +296,10 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "NOT A HOTEL Inc.",
         role: "Frontend Development Intern",
         period: "January 2025, 2 weeks",
-        bullets: ["Developed new product features."],
+        bullets: [
+          "Proposed UI/UX improvements for a product already in production.",
+          "Designed a UI/UX letting users review their own history, covering screen design through to the final proposal.",
+        ],
       },
       {
         organization: "Medley Inc.",
@@ -282,7 +311,10 @@ export const resume: Record<Locale, ResumeContent> = {
         organization: "LayerX Inc.",
         role: "Full-stack Development Summer Intern",
         period: "September 2024, 2 weeks",
-        bullets: ["Built features as a team using Next.js and Go."],
+        bullets: [
+          "Built prioritized features full-stack in Next.js and Go, based on customer requests.",
+          "Won best team award, recognized for UI/UX and presentation.",
+        ],
       },
       {
         organization: "How Television Inc.",
@@ -293,7 +325,7 @@ export const resume: Record<Locale, ResumeContent> = {
       {
         organization: "Michibiku Group",
         role: "Frontend Developer (Contract)",
-        period: "November 2023 – January 2024, 2 months",
+        period: "November 2023 – January 2024, 3 months",
         bullets: [
           "Built \"Mach Scout\", a Chrome extension that streamlines recruiting outreach with AI.",
           "Automated the flow from parsing candidate profiles on job platforms through generating personalized outreach messages.",
@@ -371,5 +403,5 @@ export const resume: Record<Locale, ResumeContent> = {
 export const resumeContact = {
   email: "somatakata.job@gmail.com",
   /** 内容を書き換えたらここも更新する。ページのフッターに出る。 */
-  updatedAt: "2026-09",
+  updatedAt: "2026-10",
 };
