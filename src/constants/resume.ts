@@ -30,7 +30,7 @@ export const resume: Record<Locale, ResumeContent> = {
   ja: {
     headline: "ソフトウェアエンジニア",
     summary: [
-      "React / Next.js・TypeScript を中心に、8社・10以上のプロダクション案件に携わってきたフルスタックエンジニア。",
+      "React / Next.js・TypeScript を中心に、12社・13の案件に携わってきたフルスタックエンジニア。",
       "課題発見から企画・設計・実装まで一気通貫で担当。",
       "AI を既存サービスに組み込み、UX 改善や業務効率化を行った実績が多数。",
     ],
@@ -131,7 +131,7 @@ export const resume: Record<Locale, ResumeContent> = {
       {
         organization: "How Television Co., Ltd.",
         role: "フロントエンド開発インターン",
-        period: "2024年4月 – 2024年7月（3ヶ月）",
+        period: "2024年4月 – 2024年7月（4ヶ月）",
         bullets: ["外資就活ドットコムを PHP から Next.js にリプレース"],
       },
       {
@@ -176,12 +176,12 @@ export const resume: Record<Locale, ResumeContent> = {
     education: [
       {
         organization: "芝浦工業大学 大学院",
-        period: "2026年4月 – 2028年3月（進学予定）",
+        period: "2026年4月 – 2028年3月（在学中）",
         bullets: [],
       },
       {
         organization: "芝浦工業大学 システム理工学部 電子情報システム学科",
-        period: "2022年4月 – 2026年3月（卒業見込み）",
+        period: "2022年4月 – 2026年3月（卒業）",
         bullets: [],
       },
     ],
@@ -218,7 +218,7 @@ export const resume: Record<Locale, ResumeContent> = {
   en: {
     headline: "Software Engineer",
     summary: [
-      "Full-stack engineer with 3 years of experience across 10+ production projects at 9 companies, specializing in React/Next.js and TypeScript.",
+      "Full-stack engineer with 3 years of experience across 13 engagements at 12 companies, specializing in React/Next.js and TypeScript.",
       "Works across the full development lifecycle, from problem identification and planning through design and implementation.",
       "Extensive experience embedding AI into existing products to improve UX and automate internal workflows.",
     ],
@@ -319,7 +319,7 @@ export const resume: Record<Locale, ResumeContent> = {
       {
         organization: "How Television Inc.",
         role: "Frontend Development Intern",
-        period: "April 2024 – July 2024, 3 months",
+        period: "April 2024 – July 2024, 4 months",
         bullets: ["Replatformed Gaishishukatsu.com from PHP to Next.js."],
       },
       {
@@ -364,13 +364,13 @@ export const resume: Record<Locale, ResumeContent> = {
     education: [
       {
         organization: "Shibaura Institute of Technology, Graduate School",
-        period: "April 2026 – March 2028 (Planned)",
+        period: "April 2026 – March 2028 (Enrolled)",
         bullets: [],
       },
       {
         organization:
           "Shibaura Institute of Technology — College of Systems Engineering and Science, Dept. of Electronic Information Systems",
-        period: "April 2022 – March 2026 (Expected)",
+        period: "April 2022 – March 2026 (Graduated)",
         bullets: [],
       },
     ],
