@@ -4,6 +4,7 @@ import Image from "next/image";
 import ThemeToggler from "./toggler";
 import LanguageSwitcher from "./language-switcher";
 import { useClockMode } from "./clock-mode";
+import { QrButton } from "@/features/qr/components/QrButton";
 
 export default function ThemeAndLanguageTogglers() {
   const clockMode = useClockMode();
@@ -28,6 +29,7 @@ export default function ThemeAndLanguageTogglers() {
           />
         </button>
       )}
+      <QrButton />
       <LanguageSwitcher />
       <ThemeToggler />
     </div>

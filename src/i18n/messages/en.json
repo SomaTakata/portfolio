@@ -9,6 +9,13 @@
     },
     "resume": "Résumé"
   },
+  "qr": {
+    "title": "QR code for this page",
+    "copy": "Copy URL",
+    "copied": "Copied",
+    "copyFailed": "Could not copy",
+    "close": "Close"
+  },
   "home": {
     "bio": "Hi I am SomaTakata, a software engineer in Japan. I am a full stack developer. I always use Next.js and Tailwind CSS.",
     "items": {

@@ -9,6 +9,13 @@
     },
     "resume": "履歴書"
   },
+  "qr": {
+    "title": "このページのQRコード",
+    "copy": "URLをコピー",
+    "copied": "コピーしました",
+    "copyFailed": "コピーできませんでした",
+    "close": "閉じる"
+  },
   "home": {
     "bio": "日本で活動するソフトウェアエンジニアです。フルスタック開発を軸に、Next.js と Tailwind CSS を用いた Web 開発を行っています。",
     "items": {
