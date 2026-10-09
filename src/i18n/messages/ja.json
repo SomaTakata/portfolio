@@ -122,6 +122,13 @@
         "link": "https://soracom.jp/"
       },
       {
+        "iconType": "sparkles",
+        "period": "2026.4 -",
+        "title": "芝浦工業大学大学院入学",
+        "description": "",
+        "link": "https://www.shibaura-it.ac.jp/"
+      },
+      {
         "iconType": "code",
         "period": "2025.10 -",
         "title": "D4V (Design for Ventures)",
@@ -207,7 +214,7 @@
       },
       {
         "iconType": "sparkles",
-        "period": "2022.4 -",
+        "period": "2022.4 - 2026.3",
         "title": "芝浦工業大学入学",
         "description": "",
         "link": "https://www.shibaura-it.ac.jp/"
