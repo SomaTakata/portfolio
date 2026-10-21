@@ -4,7 +4,7 @@ export const siteConfig: SiteConfig = {
   name: "SomaTakata",
   title: "SomaTakata Portfolio",
   description:
-    "Hi I am SomaTakata, a software engineer in Japan. I am a full stack developer. I always use Next.js and Tailwind CSS.",
+    "Soma Takata — full-stack software engineer in Japan (Shibaura Institute of Technology). Built production features at Recruit, Mercari, SORACOM, LayerX and more; 1st place & MVP at IBM Japan's AI hackathon; founder of ShibaYoko, a 540-member design × engineering community.",
   origin: "https://somatakata.com",
   keywords: [
     "SomaTakata",

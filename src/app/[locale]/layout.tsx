@@ -7,6 +7,7 @@ import RootProviders from "@/components/providers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { locales, type Locale } from "@/i18n/config";
+import { buildPersonJsonLd } from "@/features/ai-profile/person";
 
 const fontSans = Manrope({
   variable: "--font-sans",
@@ -29,6 +30,9 @@ const baseMetadata: Metadata = {
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   creator: siteConfig.name,
+  alternates: {
+    types: { "text/plain": [{ url: "/llms.txt", title: "LLM-readable profile" }] },
+  },
   icons: {
     icon: "/soma.png",
     shortcut: "/soma.png",
@@ -112,6 +116,15 @@ export default async function LocaleLayout({
           fontMono.variable,
         )}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(buildPersonJsonLd(locale)).replace(
+              /</g,
+              "\\u003c",
+            ),
+          }}
+        />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <RootProviders>{children}</RootProviders>
         </NextIntlClientProvider>
